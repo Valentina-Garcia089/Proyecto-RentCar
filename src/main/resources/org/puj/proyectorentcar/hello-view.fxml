@@ -12,12 +12,13 @@
         </padding>
 
         <Label fx:id="welcomeText" />
-      <Label text="Nombre" />
-      <TextField prefHeight="25.0" prefWidth="26.0" />
-      <Label text="Apellido" />
-      <TextField />
-      <Label text="Edad" />
-      <TextField />
+        <Label text="Nombre" />
+        <TextField prefHeight="25.0" prefWidth="26.0" />
+        <Label text="Apellido" />
+        <TextField />
+        <Label text="Edad" />
+        <TextField />
         <Button onAction="#onHelloButtonClick" text="Registrar" textAlignment="CENTER" />
     </VBox>
+   <Spinner />
 </StackPane>
