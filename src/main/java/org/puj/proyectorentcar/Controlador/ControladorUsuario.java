@@ -3,7 +3,6 @@ import org.puj.proyectorentcar.Negocio.Cliente;
 import org.puj.proyectorentcar.Negocio.Arrendatario;
 import org.puj.proyectorentcar.Negocio.Usuario;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
