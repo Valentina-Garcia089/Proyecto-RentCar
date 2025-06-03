@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import org.puj.proyectorentcar.Dominio.Arrendatario;
 import org.puj.proyectorentcar.Dominio.Cliente;
 import org.puj.proyectorentcar.Dominio.Usuario;
@@ -38,7 +36,7 @@ public class ControladorUsuario {
 
 
     // Creación de objeto
-    GestorVistas ventanas = new GestorVistas();
+    GestorVistas vistas = new GestorVistas();
     Usuario user;
 
     @FXML
@@ -48,7 +46,7 @@ public class ControladorUsuario {
             choiceTipoId.getItems().addAll("CC", "CE", "Pasaporte");
             choiceTipoUsuario.getItems().addAll("Cliente", "Arrendatario");
         } catch (Exception e) {
-            mostrarError("Error al inicializar componentes", e.getMessage());
+            vistas.mostrarError("Error al inicializar componentes", e.getMessage());
         }
     }
 
@@ -62,10 +60,10 @@ public class ControladorUsuario {
             }
 
             // Obtener datos con manejo de excepciones
-            String usr = txtNombreIngresar.getText().trim();
-            String apellido = txtApellidoIngresar.getText().trim();
-            String direccion = txtDireccionIngresar.getText().trim();
-            String email = txtCorreoIngresar.getText().trim();
+            String usr = txtNombreIngresar.getText();
+            String apellido = txtApellidoIngresar.getText();
+            String direccion = txtDireccionIngresar.getText();
+            String email = txtCorreoIngresar.getText();
             String tipoID = choiceTipoId.getValue();
             String tipoUsuario = choiceTipoUsuario.getValue();
             String pwd = txtContrasena.getText();
@@ -78,26 +76,26 @@ public class ControladorUsuario {
             try {
                 edad = Integer.parseInt(txtEdadIngresar.getText().trim());
             } catch (NumberFormatException e) {
-                mostrarError("Error en edad", "La edad debe ser un número válido");
+                vistas.mostrarError("Error en edad", "La edad debe ser un número válido");
                 return;
             }
 
             try {
                 tel = Long.parseLong(txtTelefonoIngresar.getText().trim());
             } catch (NumberFormatException e) {
-                mostrarError("Error en teléfono", "El teléfono debe ser solo números");
+                vistas.mostrarError("Error en teléfono", "El teléfono debe ser solo números");
                 return;
             }
 
             try {
                 numId = Long.parseLong(txtNumeroId.getText().trim());
             } catch (NumberFormatException e) {
-                mostrarError("Error en número de ID", "El número de ID debe ser solo números");
+                vistas.mostrarError("Error en número de ID", "El número de ID debe ser solo números");
                 return;
             }
 
             if (edad < 18) {
-                mostrarError("Error de edad", "Debe ser mayor de 18 años");
+                vistas.mostrarError("Error de edad", "Debe ser mayor de 18 años");
                 return;
             }
 
@@ -107,22 +105,22 @@ public class ControladorUsuario {
             // Crear usuario según el tipo
             if ("Cliente".equals(tipoUsuario)) {
                 user = new Cliente(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
-                ventanas.abrirVentana("/org/puj/proyectorentcar/cliente-vista.fxml", "Alquiler de vehiculo", actual);
+                vistas.abrirVentana("/org/puj/proyectorentcar/cliente-vista.fxml", "Alquiler de vehiculo", actual);
             }
             else if ("Arrendatario".equals(tipoUsuario)){
                 user = new Arrendatario(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
-                ventanas.abrirVentana("/org/puj/proyectorentcar/registrar-vehiculo.fxml", "Registro Vehiculo", actual);
+                vistas.abrirVentana("/org/puj/proyectorentcar/registrar-vehiculo.fxml", "Registro Vehiculo", actual);
             }
 
         } catch (Exception e) {
             // Captura cualquier otra excepción
-            mostrarError("Error inesperado", "Ha ocurrido un error: " + e.getMessage());
-            e.printStackTrace(); // Para debugging
+            vistas.mostrarError("Error inesperado", "Ha ocurrido un error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    private boolean validarCampos() {
 
+    private boolean validarCampos() {
         StringBuilder errores = new StringBuilder();
 
         if (txtNombreIngresar.getText().trim().isEmpty()) {
@@ -172,31 +170,11 @@ public class ControladorUsuario {
         }
 
         if (errores.length() > 0) {
-            mostrarError("Campos requeridos", errores.toString());
+            vistas.mostrarError("Campos requeridos", errores.toString());
             return false;
         }
 
         return true;
-    }
-
-
-    //mensaje de error
-    private void mostrarError(String titulo, String mensaje) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(titulo);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
-
-    //mensaje de bien :)
-
-     private void mostrarExito(String titulo, String mensaje) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Éxito");
-        alert.setHeaderText(titulo);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
     }
 }
 
