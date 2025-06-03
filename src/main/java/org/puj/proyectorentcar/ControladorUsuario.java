@@ -179,8 +179,8 @@ public class ControladorUsuario {
         return true;
     }
 
- //mensaje de error
 
+    //mensaje de error
     private void mostrarError(String titulo, String mensaje) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Error");
@@ -192,11 +192,11 @@ public class ControladorUsuario {
     //mensaje de bien :)
 
      private void mostrarExito(String titulo, String mensaje) {
-    Alert alert = new Alert(AlertType.INFORMATION);
-    alert.setTitle("Éxito");
-    alert.setHeaderText(titulo);
-    alert.setContentText(mensaje);
-    alert.showAndWait();
-}
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Éxito");
+        alert.setHeaderText(titulo);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 }
 

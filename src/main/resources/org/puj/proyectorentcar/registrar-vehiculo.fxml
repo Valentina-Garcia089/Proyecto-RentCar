@@ -16,7 +16,7 @@
                 <Label text="Número de Puertas" />
                 <TextField fx:id="txtNumPuertasIngresar" onAction="#onClickRegistrarVehiculo" promptText="Perez" />
                 <Label text="Capacidad del Motor" />
-            <Slider fx:id="sldCapacidadMotor" />
+            <Slider fx:id="sldCapacidadMotor" majorTickUnit="10.0" showTickLabels="true" showTickMarks="true" />
                 <Label text="Color" />
             <ColorPicker minHeight="-Infinity" minWidth="-Infinity" prefWidth="90.0" />
                 <Label text="Placa" translateX="100.0" translateY="-73.0" />
@@ -31,12 +31,12 @@
                 <Label text="Tipo de Vehiculo" translateY="-35.0" />
                 <TextField fx:id="txtTipoVehiculoIngresar" onAction="#onClickRegistrarVehiculo" translateY="-35.0" />
 
-                <Label text="Ciudad" translateY="-8.0" />
-            <TextField fx:id="txtCiudadIngresar" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefWidth="95.0" translateY="-8.0" />
-            <Label text="Pais" translateX="100.0" translateY="-73.0" />
-            <TextField fx:id="txtPaisIngresar" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefWidth="95.0" translateX="100.0" translateY="-73.0" />
+                <Label text="Ciudad" translateY="-10.0" />
+            <TextField fx:id="txtCiudadIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefWidth="99.0" translateY="-10.0" />
+            <Label text="Pais" translateX="110.0" translateY="-84.0" />
+            <TextField fx:id="txtPaisIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefWidth="99.0" translateX="110.0" translateY="-84.0" />
 
-                <Button fx:id="btnRegistrarVehiculo" mnemonicParsing="false" onAction="#onClickRegistrarVehiculo" text="Registrar Vehiculo">
+                <Button fx:id="btnRegistrarVehiculo" mnemonicParsing="false" onAction="#onClickRegistrarVehiculo" text="Registrar Vehiculo" translateY="-20.0">
                     <VBox.margin>
                         <Insets left="70.0" right="70.0" />
                     </VBox.margin></Button>
