@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane alignment="CENTER" minHeight="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.AlquilerVehiculoControlador">
+    <ScrollPane prefHeight="400.0" prefWidth="280.0">
+        <content>
+            <VBox alignment="TOP_LEFT" prefHeight="715.0" prefWidth="253.0" spacing="15.0">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                </padding>
+                <HBox alignment="CENTER">
+                    <Label minHeight="-Infinity" prefHeight="50.0" prefWidth="213.0" text="Llene los siguientes datos para alquilar un vehiculo" textAlignment="CENTER" wrapText="true" />
+                </HBox>
+                <Label text="Ciudad Origen" />
+                <TextField fx:id="txtCiudadOrigenIngresar" onAction="#onClickBuscarVehiculo" prefHeight="25.0" prefWidth="26.0" />
+                <Label text="Ciudad Destino" />
+                <TextField fx:id="txtCiudadDestinoIngresar" onAction="#onClickBuscarVehiculo" />
+                <Label text="Pais Actual" />
+            <TextField fx:id="txtPaisActualIngresar" onAction="#onClickBuscarVehiculo" />
+                <Label text="Pais Destino" />
+            <TextField fx:id="txtPaisDestinoIngresar" onAction="#onClickBuscarVehiculo" />
+                <Label text="Oficina de Recogida" translateX="100.0" translateY="-73.0" />
+                <TextField fx:id="txtOficinaRecogidaIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefHeight="25.0" prefWidth="110.0" translateX="100.0" translateY="-73.0" />
+                <Label text="Ofina de Devolución" translateY="-65.0" />
+                <TextField fx:id="txtOficinaDevolucionIngresar" onAction="#onClickBuscarVehiculo" translateY="-70.0" />
+
+                <Label text="Fecha de Entrega" translateY="-35.0" />
+            <DatePicker fx:id="dateEntrega" onAction="#onClickBuscarVehiculo" />
+                <Label text="Fecha Devolución" translateY="-35.0" />
+            <DatePicker fx:id="dateDevolucion" onAction="#onClickBuscarVehiculo" />
+
+                <Button fx:id="btnBuscarVehiculo" mnemonicParsing="false" onAction="#onClickBuscarVehiculo" text="Buscar Vehiculo" translateY="-20.0">
+                    <VBox.margin>
+                        <Insets left="70.0" right="70.0" />
+                    </VBox.margin></Button>
+            </VBox>
+        </content>
+    </ScrollPane>
+
+</StackPane>

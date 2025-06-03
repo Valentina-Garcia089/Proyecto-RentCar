@@ -2,18 +2,14 @@ package org.puj.proyectorentcar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import org.puj.proyectorentcar.Dominio.Alquiler;
-import org.puj.proyectorentcar.Dominio.PlacaException;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
 
-public class RegistrarVehiculoController {
+public class RegistrarVehiculoControlador {
 
     @javafx.fxml.FXML
     private Slider sldCapacidadMotor;
@@ -86,12 +82,10 @@ public class RegistrarVehiculoController {
                 vistas.mostrarError("Error en precio", "El precio debe tener un valor valido.\n");
             }
 
-            // Ventana actual
-            Stage actual = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
             // Se crea el vehiculo y la siguiente ventana
             vehiculo = new Vehiculo(numSillas, numPuertas, capacidadMotor, color, placa, marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual);
-            vistas.abrirVentana("", "", actual);
+
 
         } catch (Exception e) {
             // Captura cualquier otra excepción
