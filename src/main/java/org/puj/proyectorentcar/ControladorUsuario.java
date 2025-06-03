@@ -105,7 +105,7 @@ public class ControladorUsuario {
             // Crear usuario según el tipo
             if ("Cliente".equals(tipoUsuario)) {
                 user = new Cliente(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
-                vistas.abrirVentana("/org/puj/proyectorentcar/cliente-vista.fxml", "Alquiler de vehiculo", actual);
+                vistas.abrirVentana("/org/puj/proyectorentcar/alquiler-vehiculo.fxml", "Buscar vehiculo", actual);
             }
             else if ("Arrendatario".equals(tipoUsuario)){
                 user = new Arrendatario(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
@@ -169,7 +169,7 @@ public class ControladorUsuario {
             errores.append("- El formato del correo no es válido\n");
         }
 
-        if (errores.length() > 0) {
+        if (!errores.isEmpty()) {
             vistas.mostrarError("Campos requeridos", errores.toString());
             return false;
         }

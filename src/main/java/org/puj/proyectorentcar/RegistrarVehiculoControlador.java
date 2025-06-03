@@ -116,6 +116,11 @@ public class RegistrarVehiculoControlador {
         if (txtPlacaIngresar.getText().trim().isEmpty())
             errores.append("Debe llenar el campo de placa.\n");
 
+        if (!errores.isEmpty()) {
+            vistas.mostrarError("Campos requeridos", errores.toString());
+            return false;
+        }
+
         return true;
     }
 }

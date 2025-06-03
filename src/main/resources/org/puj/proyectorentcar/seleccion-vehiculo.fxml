@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="378.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.SeleccionVehiculoControlador">
+
+    <VBox alignment="CENTER" maxWidth="380.0" prefHeight="378.0" prefWidth="380.0" spacing="15.0">
+        <children>
+            <Label text="Seleccione un servicio" translateX="165.0" translateY="110.0" />
+            <ComboBox fx:id="ComboServicios" nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" translateX="165.0" translateY="100.0" VBox.vgrow="SOMETIMES" />
+            <ListView fx:id="ListViewServicios" prefHeight="200.0" prefWidth="226.0" scaleX="0.75" scaleY="1.25" translateX="-100.0" translateY="30.0" />
+            <Label text="Ingrese cantidad" translateX="165.0" translateY="-100.0" />
+            <TextField fx:id="txtCantidad" maxWidth="90.0" translateX="165.0" translateY="-110.0" />
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#onClickAgregarServicio" text="Enviar" translateX="165.0" translateY="-100.0" />
+        </children>
+    </VBox>
+
+</StackPane>

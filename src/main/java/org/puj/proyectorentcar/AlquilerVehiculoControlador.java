@@ -41,40 +41,42 @@ public class AlquilerVehiculoControlador {
         try {
             if (!validarCampos())
                 return;
+
             // Conversión de datos SIN EXCEPCIONES
-            String PaisActual = txtPaisActualIngresar.getText();
-            String OficinaRecogidaIngresar = txtOficinaRecogidaIngresar.getText();
-            LocalDate fechaEntrega = dateEntrega.getValue();
-            LocalDate fechaDevolucion = dateDevolucion.getValue();
-            String PaisDestionoIngresar = txtPaisDestinoIngresar.getText();
-            String OficinaDevolucionIngresar =txtOficinaDevolucionIngresar.getText();
-            String CiudadOrigenIngresar = txtCiudadOrigenIngresar.getText();
-            String CiudadDestinoIngresar =txtCiudadDestinoIngresar.getText();
+            String paisActual = txtPaisActualIngresar.getText();
+            String oficinaRecogidaIngresar = txtOficinaRecogidaIngresar.getText();
+            String paisDestionoIngresar = txtPaisDestinoIngresar.getText();
+            String oficinaDevolucionIngresar =txtOficinaDevolucionIngresar.getText();
+            String ciudadOrigenIngresar = txtCiudadOrigenIngresar.getText();
+            String ciudadDestinoIngresar =txtCiudadDestinoIngresar.getText();
+
+
+            // Conversiones con manejo de errores
+            LocalDate fechaEntrega;
+            LocalDate fechaDevolucion;
 
 
             try {
+                fechaEntrega = dateEntrega.getValue();
+                fechaDevolucion = dateDevolucion.getValue();
                 if (fechaDevolucion.isBefore(fechaEntrega)) {
                     throw new DateTimeException(
                             "La fecha de devolución debe ser posterior a la fecha de entrega"
                     );
                 }
-
             } catch (DateTimeException e) {
                 vistas.mostrarError("Error de fecha", e.getMessage());
-                return;
             }
-
-
         } catch (Exception e) {
             // Captura cualquier otra excepción
             vistas.mostrarError("Error inesperado", "Ha ocurrido un error: " + e.getMessage());
             e.printStackTrace();
         }
+    }
 
 
-        }
 
-        private boolean validarCampos() {
+    private boolean validarCampos() {
         StringBuilder errores = new StringBuilder();
 
         if (txtPaisActualIngresar.getText().trim().isEmpty())
@@ -93,9 +95,13 @@ public class AlquilerVehiculoControlador {
             errores.append("Debe llenar el campo de la ciudad de origen\n");
         if (txtCiudadDestinoIngresar.getText().trim().isEmpty())
             errores.append("Debe llenar el campo de la ciudad destino\n");
+        if (!errores.isEmpty()) {
+            vistas.mostrarError("Campos requeridos", errores.toString());
+            return false;
+        }
+
         return true;
-
     }
 
-    }
+}
 

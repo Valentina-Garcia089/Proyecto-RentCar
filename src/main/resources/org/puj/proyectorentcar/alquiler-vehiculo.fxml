@@ -2,39 +2,43 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane alignment="CENTER" minHeight="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.AlquilerVehiculoControlador">
-    <ScrollPane prefHeight="400.0" prefWidth="280.0">
+<StackPane alignment="CENTER" minHeight="-Infinity" prefHeight="380.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.AlquilerVehiculoControlador">
+    <ScrollPane maxHeight="-Infinity" prefHeight="380.0" prefWidth="280.0">
         <content>
-            <VBox alignment="TOP_LEFT" prefHeight="715.0" prefWidth="253.0" spacing="15.0">
+            <VBox alignment="TOP_LEFT" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="490.0" prefWidth="253.0" spacing="15.0">
                 <padding>
                     <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
                 </padding>
                 <HBox alignment="CENTER">
-                    <Label minHeight="-Infinity" prefHeight="50.0" prefWidth="213.0" text="Llene los siguientes datos para alquilar un vehiculo" textAlignment="CENTER" wrapText="true" />
+                    <Label minHeight="-Infinity" prefHeight="50.0" prefWidth="213.0" text="Llene los siguientes datos para buscar un vehiculo" textAlignment="CENTER" wrapText="true" />
+               <effect>
+                  <Blend />
+               </effect>
                 </HBox>
                 <Label text="Ciudad Origen" />
-                <TextField fx:id="txtCiudadOrigenIngresar" onAction="#onClickBuscarVehiculo" prefHeight="25.0" prefWidth="26.0" />
-                <Label text="Ciudad Destino" />
-                <TextField fx:id="txtCiudadDestinoIngresar" onAction="#onClickBuscarVehiculo" />
-                <Label text="Pais Actual" />
-            <TextField fx:id="txtPaisActualIngresar" onAction="#onClickBuscarVehiculo" />
-                <Label text="Pais Destino" />
-            <TextField fx:id="txtPaisDestinoIngresar" onAction="#onClickBuscarVehiculo" />
-                <Label text="Oficina de Recogida" translateX="100.0" translateY="-73.0" />
-                <TextField fx:id="txtOficinaRecogidaIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefHeight="25.0" prefWidth="110.0" translateX="100.0" translateY="-73.0" />
-                <Label text="Ofina de Devolución" translateY="-65.0" />
-                <TextField fx:id="txtOficinaDevolucionIngresar" onAction="#onClickBuscarVehiculo" translateY="-70.0" />
+                <TextField fx:id="txtCiudadOrigenIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefHeight="25.0" prefWidth="103.0" />
+                <Label text="Ciudad Destino" translateX="111.0" translateY="-73.0" />
+                <TextField fx:id="txtCiudadDestinoIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefWidth="103.0" translateX="111.0" translateY="-73.0" />
+                <Label text="Pais Actual" translateY="-73.0" />
+            <TextField fx:id="txtPaisActualIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefWidth="103.0" translateY="-73.0" />
+                <Label text="Pais Destino" translateX="111.0" translateY="-146.0" />
+            <TextField fx:id="txtPaisDestinoIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefWidth="103.0" translateX="111.0" translateY="-146.0" />
+                <Label text="Oficina de Recogida" translateY="-146.0" />
+                <TextField fx:id="txtOficinaRecogidaIngresar" onAction="#onClickBuscarVehiculo" prefHeight="25.0" prefWidth="110.0" translateY="-146.0" />
+                <Label text="Ofina de Devolución" translateY="-146.0" />
+                <TextField fx:id="txtOficinaDevolucionIngresar" onAction="#onClickBuscarVehiculo" translateY="-146.0" />
 
-                <Label text="Fecha de Entrega" translateY="-35.0" />
-            <DatePicker fx:id="dateEntrega" onAction="#onClickBuscarVehiculo" />
-                <Label text="Fecha Devolución" translateY="-35.0" />
-            <DatePicker fx:id="dateDevolucion" onAction="#onClickBuscarVehiculo" />
+                <Label prefWidth="95.0" text="Fecha de Entrega" translateX="7.0" translateY="-146.0" />
+            <DatePicker fx:id="dateEntrega" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefWidth="90.0" translateX="7.0" translateY="-146.0" />
+                <Label text="Fecha Devolución" translateX="114.0" translateY="-219.0" />
+            <DatePicker fx:id="dateDevolucion" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefWidth="90.0" translateX="115.0" translateY="-219.0" />
 
-                <Button fx:id="btnBuscarVehiculo" mnemonicParsing="false" onAction="#onClickBuscarVehiculo" text="Buscar Vehiculo" translateY="-20.0">
+                <Button fx:id="btnBuscarVehiculo" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickBuscarVehiculo" prefWidth="100.0" text="Buscar Vehiculo" translateY="-210.0">
                     <VBox.margin>
-                        <Insets left="70.0" right="70.0" />
+                        <Insets left="55.0" right="55.0" />
                     </VBox.margin></Button>
             </VBox>
         </content>
