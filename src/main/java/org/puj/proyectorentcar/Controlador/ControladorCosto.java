@@ -1,6 +1,31 @@
 package org.puj.proyectorentcar.Controlador;
 
+import org.puj.proyectorentcar.Negocio.Alquiler;
+
+import java.time.LocalDate;
+import java.util.List;
+
 public class ControladorCosto {
+    private List<Alquiler>  alquilerList;
+
+    public Alquiler buscar(LocalDate entrega, LocalDate devolucion ){
+        for(Alquiler e: alquilerList){
+            if(e!=null){
+                if(e.getFechaEntrega().equals(entrega) && e.getFechaDevolucion().equals(devolucion)){
+                    return e;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void AgregarAlquiler(){
+
+    }
+
+
+
+
     public ControladorCosto() {
     }
     public void obtenerDatosCalculo(){
