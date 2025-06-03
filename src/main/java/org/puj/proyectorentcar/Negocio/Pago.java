@@ -7,13 +7,15 @@ import java.time.LocalDate;
 public class Pago {
     private String franquiciaT;
     private long numTarjeta;
+    private String nombreT;
     private LocalDate vencimientoT;
     private int cvv;
     private int numeroCuotas;
 
-    public Pago(String franquiciaT, long numTarjeta, LocalDate vencimientoT, int cvv, int numeroCuotas) {
+    public Pago(String franquiciaT, long numTarjeta, String nombreT, LocalDate vencimientoT, int cvv, int numeroCuotas) {
         this.franquiciaT = franquiciaT;
         this.numTarjeta = numTarjeta;
+        this.nombreT = nombreT;
         this.vencimientoT = vencimientoT;
         this.cvv = cvv;
         this.numeroCuotas = numeroCuotas;
@@ -43,6 +45,14 @@ public class Pago {
         this.vencimientoT = vencimientoT;
     }
 
+    public String getNombreT() {
+        return nombreT;
+    }
+
+    public void setNombreT(String nombreT) {
+        this.nombreT = nombreT;
+    }
+
     public int getCvv() {
         return cvv;
     }
@@ -64,6 +74,7 @@ public class Pago {
         return "Pago{" +
                 "franquiciaT='" + franquiciaT + '\'' +
                 ", numTarjeta=" + numTarjeta +
+                ", nombreT='" + nombreT + '\'' +
                 ", vencimientoT=" + vencimientoT +
                 ", cvv=" + cvv +
                 ", numeroCuotas=" + numeroCuotas +
