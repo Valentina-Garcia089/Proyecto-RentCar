@@ -1,5 +1,4 @@
-package org.puj.proyectorentcar.Negocio;
-import org.puj.proyectorentcar.Negocio.PlacaException;
+package org.puj.proyectorentcar.Dominio;
 
 
 import java.util.ArrayList;

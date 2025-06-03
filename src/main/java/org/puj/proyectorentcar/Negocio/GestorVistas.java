@@ -1,4 +1,4 @@
-package org.puj.proyectorentcar.Pantalla;
+package org.puj.proyectorentcar.Negocio;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,7 +15,7 @@ public class GestorVistas {
             stage.setTitle(titulo);
             stage.setScene(scene);
             stage.show();
-
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAA");
             if(pasada != null)
                 pasada.close();
         }

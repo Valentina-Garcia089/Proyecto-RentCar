@@ -1,4 +1,4 @@
-package org.puj.proyectorentcar.Negocio;
+package org.puj.proyectorentcar.Dominio;
 
 public class Usuario {
 
@@ -10,12 +10,13 @@ public class Usuario {
     private String correo;
     private String tipoId;
     private long numeroId;
+    private String tipoUsuario;
     private String contrasenia;
 
         // Constructor y getters/setters
 
 
-    public Usuario(String nombre, String apellido, int edad, String direccion, long telefono, String correo, String tipoId, long numeroId, String contrasenia) {
+    public Usuario(String nombre, String apellido, int edad, String direccion, long telefono, String correo, String tipoId, long numeroId, String tipoUsuario,String contrasenia) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -24,6 +25,7 @@ public class Usuario {
         this.correo = correo;
         this.tipoId = tipoId;
         this.numeroId = numeroId;
+        this.tipoUsuario = tipoUsuario;
         this.contrasenia = contrasenia;
     }
 
@@ -97,5 +99,13 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 }

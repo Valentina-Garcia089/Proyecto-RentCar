@@ -1,4 +1,4 @@
-package org.puj.proyectorentcar.Negocio;
+package org.puj.proyectorentcar.Dominio;
 
 public class Seguro {
     private String tipo;

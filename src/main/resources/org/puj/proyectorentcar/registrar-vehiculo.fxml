@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane alignment="CENTER" minHeight="-Infinity" prefHeight="400.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.RegistrarVehiculoController">
+    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+        <content>
+            <VBox alignment="TOP_LEFT" prefHeight="715.0" prefWidth="253.0" spacing="15.0">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                </padding>
+                <Label text="Número de Sillas" />
+                <TextField fx:id="txtNumSillasIngresar" onAction="#onClickRegistrarVehiculo" prefHeight="25.0" prefWidth="26.0" promptText="Pepito" />
+                <Label text="Número de Puertas" />
+                <TextField fx:id="txtNumPuertasIngresar" onAction="#onClickRegistrarVehiculo" promptText="Perez" />
+                <Label text="Capacidad del Motor" />
+            <Slider fx:id="sldCapacidadMotor" />
+                <Label text="Color" />
+            <ColorPicker minHeight="-Infinity" minWidth="-Infinity" prefWidth="90.0" />
+                <Label text="Placa" translateX="100.0" translateY="-73.0" />
+                <TextField fx:id="txtNumeroId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefHeight="25.0" prefWidth="110.0" translateX="100.0" translateY="-73.0" />
+                <Label text="Marca" translateY="-65.0" />
+            <TextField fx:id="txtMarcaIngresar" onAction="#onClickRegistrarVehiculo" translateY="-70.0" />
+
+                <Label text="Modelo" translateY="-35.0" />
+                <TextField fx:id="txtDireccionIngresar" onAction="#onClickRegistrarVehiculo" prefHeight="25.0" prefWidth="26.0" translateY="-35.0" />
+                <Label text="Precio por Día" translateY="-35.0" />
+                <TextField fx:id="txtPrecioIngresar" onAction="#onClickRegistrarVehiculo" translateY="-35.0" />
+                <Label text="Tipo de Vehiculo" translateY="-35.0" />
+                <TextField fx:id="txtTipoVehiculoIngresar" onAction="#onClickRegistrarVehiculo" translateY="-35.0" />
+
+                <Label text="Ciudad" translateY="-8.0" />
+            <TextField fx:id="txtCiudadIngresar" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefWidth="95.0" translateY="-8.0" />
+            <Label text="Pais" translateX="100.0" translateY="-73.0" />
+            <TextField fx:id="txtPaisIngresar" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefWidth="95.0" translateX="100.0" translateY="-73.0" />
+
+                <Button fx:id="btnRegistrarVehiculo" mnemonicParsing="false" onAction="#onClickRegistrarVehiculo" text="Registrar Vehiculo">
+                    <VBox.margin>
+                        <Insets left="70.0" right="70.0" />
+                    </VBox.margin></Button>
+            </VBox>
+        </content>
+    </ScrollPane>
+
+</StackPane>

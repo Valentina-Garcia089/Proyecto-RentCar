@@ -1,4 +1,4 @@
-package org.puj.proyectorentcar.Negocio;
+package org.puj.proyectorentcar.Dominio;
 
 
 import java.time.LocalDate;
