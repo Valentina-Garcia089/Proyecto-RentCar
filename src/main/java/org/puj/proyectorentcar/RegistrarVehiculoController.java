@@ -33,5 +33,6 @@ public class RegistrarVehiculoController {
 
     @javafx.fxml.FXML
     public void onClickRegistrarVehiculo(ActionEvent actionEvent) {
+
     }
 }
