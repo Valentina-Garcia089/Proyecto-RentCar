@@ -4,21 +4,40 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane prefHeight="231.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.HelloController">
+<StackPane alignment="CENTER" minHeight="-Infinity" prefHeight="400.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.HelloController">
+   <ScrollPane prefHeight="200.0" prefWidth="200.0">
+     <content>
+         <VBox alignment="TOP_LEFT" prefHeight="715.0" prefWidth="253.0" spacing="15.0">
+             <padding>
+                 <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+             </padding>
+             <Label text="Nombre" />
+             <TextField fx:id="txtNombreIngresar" onAction="#onClickRegistrarse" prefHeight="25.0" prefWidth="26.0" promptText="Pepito" />
+             <Label text="Apellido" />
+             <TextField fx:id="txtApellidoIngresar" onAction="#onClickRegistrarse" promptText="Perez" />
+             <Label text="Edad" />
+             <TextField fx:id="txtEdadIngresar" onAction="#onClickRegistrarse" promptText="18" />
+             <Label text="Tipo ID" />
+             <ChoiceBox fx:id="choiceTipoId" prefHeight="25.0" prefWidth="84.0" />
+             <Label text="Número ID" translateX="90.0" translateY="-73.0" />
+             <TextField fx:id="txtNumeroId" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickRegistrarse" prefHeight="25.0" prefWidth="120.0" translateX="90.0" translateY="-73.0" />
 
-    <VBox alignment="CENTER" maxWidth="230.0" prefHeight="231.0" prefWidth="141.0" spacing="15.0">
-        <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-        </padding>
+             <Label text="Dirección" translateY="-35.0" />
+             <TextField fx:id="txtDireccionIngresar" onAction="#onClickRegistrarse" prefHeight="25.0" prefWidth="26.0" translateY="-35.0" />
+             <Label text="Telefono" translateY="-35.0" />
+             <TextField fx:id="txtTelefonoIngresar" onAction="#onClickRegistrarse" translateY="-35.0" />
+             <Label text="Correo Electrónico" translateY="-35.0" />
+             <TextField fx:id="txtCorreoIngresar" onAction="#onClickRegistrarse" translateY="-35.0" />
 
-        <Label fx:id="welcomeText" />
-        <Label text="Nombre" />
-        <TextField prefHeight="25.0" prefWidth="26.0" />
-        <Label text="Apellido" />
-        <TextField />
-        <Label text="Edad" />
-        <TextField />
-        <Button onAction="#onHelloButtonClick" text="Registrar" textAlignment="CENTER" />
-    </VBox>
-   <Spinner />
+             <Label text="Contraseña" translateY="-8.0" />
+             <PasswordField fx:id="txtContrasena" onAction="#onClickRegistrarse" translateY="-8.0" />
+
+             <Button fx:id="btnRegistrarse" mnemonicParsing="false" onAction="#onClickRegistrarse" text="Registrarse">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin></Button>
+         </VBox>
+     </content>
+   </ScrollPane>
+
 </StackPane>
