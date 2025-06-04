@@ -3,9 +3,21 @@ package org.puj.proyectorentcar.Dominio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
+
 public class Vehiculo {
 
     private static List<String> placasRegistradas = new ArrayList<>();
+    private static List<Vehiculo> vehiculosRegistrados = new ArrayList<>();
+    private static final String ARCHIVO_VEHICULOS = "vehiculos.txt";
+
 
         private int numSillas;
         private int numPuertas;
@@ -41,6 +53,98 @@ public class Vehiculo {
         this.paisActual = paisActual;
 
         placasRegistradas.add(new String(this.placa));
+        vehiculosRegistrados.add(this);
+    }
+
+    // Constructor para cargar desde archivo (sin validación de placa duplicada)
+    private Vehiculo(int numSillas, int numPuertas, float capacidadMotor, String color,
+                     char[] placa, String marca, String modelo, float precioDia,
+                     String tipoVehiculo, String ciudad, String paisActual, boolean fromFile) {
+        this.numSillas = numSillas;
+        this.numPuertas = numPuertas;
+        this.capacidadMotor = capacidadMotor;
+        this.color = color;
+        this.placa = placa;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.precioDia = precioDia;
+        this.tipoVehiculo = tipoVehiculo;
+        this.ciudad = ciudad;
+        this.paisActual = paisActual;
+    }
+
+    // Método para cargar vehículos al iniciar el programa
+    public static void cargarVehiculos() {
+        File archivo = new File(ARCHIVO_VEHICULOS);
+        if (!archivo.exists()) {
+            System.out.println("No se encontró archivo de vehículos. Iniciando con lista vacía.");
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            vehiculosRegistrados.clear();
+            placasRegistradas.clear();
+
+            while ((linea = reader.readLine()) != null) {
+                Vehiculo vehiculo = parsearLineaVehiculo(linea);
+                if (vehiculo != null) {
+                    vehiculosRegistrados.add(vehiculo);
+                    placasRegistradas.add(new String(vehiculo.placa));
+                }
+            }
+            System.out.println("Se cargaron " + vehiculosRegistrados.size() + " vehículos desde el archivo.");
+        } catch (IOException e) {
+            System.err.println("Error al cargar vehículos: " + e.getMessage());
+        }
+    }
+
+    // Método para guardar vehículos al cerrar el programa
+    public static void guardarVehiculos() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(ARCHIVO_VEHICULOS))) {
+            for (Vehiculo vehiculo : vehiculosRegistrados) {
+                writer.println(vehiculo.toFileString());
+            }
+            System.out.println("Se guardaron " + vehiculosRegistrados.size() + " vehículos en el archivo.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar vehículos: " + e.getMessage());
+        }
+    }
+
+    // Convertir vehículo a string para archivo (separado por |)
+    private String toFileString() {
+        return numSillas + "|" + numPuertas + "|" + capacidadMotor + "|" + color + "|" +
+                new String(placa) + "|" + marca + "|" + modelo + "|" + precioDia + "|" +
+                tipoVehiculo + "|" + ciudad + "|" + paisActual;
+    }
+
+    // Parsear línea del archivo para crear vehículo
+    private static Vehiculo parsearLineaVehiculo(String linea) {
+        try {
+            String[] datos = linea.split("\\|");
+            if (datos.length != 11) {
+                System.err.println("Línea con formato incorrecto: " + linea);
+                return null;
+            }
+
+            int numSillas = Integer.parseInt(datos[0]);
+            int numPuertas = Integer.parseInt(datos[1]);
+            float capacidadMotor = Float.parseFloat(datos[2]);
+            String color = datos[3];
+            char[] placa = datos[4].toCharArray();
+            String marca = datos[5];
+            String modelo = datos[6];
+            float precioDia = Float.parseFloat(datos[7]);
+            String tipoVehiculo = datos[8];
+            String ciudad = datos[9];
+            String paisActual = datos[10];
+
+            return new Vehiculo(numSillas, numPuertas, capacidadMotor, color, placa,
+                    marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual, true);
+        } catch (NumberFormatException e) {
+            System.err.println("Error al parsear datos numéricos en línea: " + linea);
+            return null;
+        }
     }
 
     public boolean verificarPlacaExistente() {
