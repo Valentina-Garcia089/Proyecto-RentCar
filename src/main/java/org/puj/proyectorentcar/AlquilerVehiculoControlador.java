@@ -1,9 +1,12 @@
 package org.puj.proyectorentcar;
 
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import org.puj.proyectorentcar.Dominio.Alquiler;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
 
@@ -35,6 +38,7 @@ public class AlquilerVehiculoControlador {
 
     GestorVistas vistas = new GestorVistas();
 
+
     @javafx.fxml.FXML
     public void onClickBuscarVehiculo(ActionEvent actionEvent) {
 
@@ -64,6 +68,11 @@ public class AlquilerVehiculoControlador {
                             "La fecha de devolución debe ser posterior a la fecha de entrega"
                     );
                 }
+
+                Alquiler alquiler = new Alquiler(ciudadOrigenIngresar,paisActual,paisDestionoIngresar, oficinaRecogidaIngresar, ciudadDestinoIngresar, oficinaDevolucionIngresar, fechaEntrega, fechaDevolucion);
+                Stage actual = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                vistas.abrirVentana("/org/puj/proyectorentcar/seleccion-vehiculo.fxml", "Seleccionar Vehiculo", actual);
+
             } catch (DateTimeException e) {
                 vistas.mostrarError("Error de fecha", e.getMessage());
             }

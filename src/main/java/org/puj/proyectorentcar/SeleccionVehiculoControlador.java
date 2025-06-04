@@ -2,12 +2,13 @@ package org.puj.proyectorentcar;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import org.puj.proyectorentcar.Dominio.Vehiculo;
 
 public class SeleccionVehiculoControlador {
 
 
     @javafx.fxml.FXML
-    private ListView listViewVehiculosEncontrados;
+    private ListView <Vehiculo> listViewVehiculosEncontrados;
     @javafx.fxml.FXML
     private Button btnAgregarSeguro;
     @javafx.fxml.FXML
@@ -17,7 +18,7 @@ public class SeleccionVehiculoControlador {
     @javafx.fxml.FXML
     private Button btnAgregarServiciosAdd;
     @javafx.fxml.FXML
-    private ListView listViewVehiculoSeleccionado;
+    private ListView <Vehiculo> listViewVehiculoSeleccionado;
     @javafx.fxml.FXML
     private Button btnPagar;
     @javafx.fxml.FXML

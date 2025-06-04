@@ -36,7 +36,7 @@ public class Seguro {
     }
 
     @Override
-    public String   toString() {
+    public String  toString() {
         return "Seguro{" +
                 "tipo='" + tipo + '\'' +
                 ", costo=" + costo +
