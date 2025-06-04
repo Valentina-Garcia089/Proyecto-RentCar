@@ -12,11 +12,10 @@ import org.puj.proyectorentcar.Negocio.Contrato;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.DateTimeException;
-import java.time.chrono.Chronology;
 
-public class AlquilerVehiculoControlador implements  IControlador{
+
+public class AlquilerVehiculoControlador implements IControlador{
 
     @javafx.fxml.FXML
     private TextField txtPaisActualIngresar;

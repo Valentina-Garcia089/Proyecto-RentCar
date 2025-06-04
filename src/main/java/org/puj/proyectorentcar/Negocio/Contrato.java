@@ -27,5 +27,4 @@ public class Contrato {
         return alquiler;
     }
 
-
 }
