@@ -31,6 +31,25 @@ public class Vehiculo {
         private String ciudad;
         private String paisActual;
 
+
+
+    public String exportar() {
+        return numSillas + "," +
+                numPuertas + "," +
+                capacidadMotor + "," +
+                color + "," +
+                String.valueOf(placa) + "," +
+                marca + "," +
+                modelo + "," +
+                precioDia + "," +
+                tipoVehiculo + "," +
+                ciudad + "," +
+                paisActual;
+    }
+
+
+
+
     public Vehiculo(int numSillas, int numPuertas, float capacidadMotor, String color, char[] placa, String marca, String modelo, float precioDia,
                     String tipoVehiculo, String ciudad, String paisActual)  throws PlacaException {
         this.numSillas = numSillas;
@@ -73,7 +92,7 @@ public class Vehiculo {
         this.paisActual = paisActual;
     }
 
-    // Método para cargar vehículos al iniciar el programa
+    // Metodo para cargar vehículos al iniciar el programa
     public static void cargarVehiculos() {
         File archivo = new File(ARCHIVO_VEHICULOS);
         if (!archivo.exists()) {
@@ -99,7 +118,7 @@ public class Vehiculo {
         }
     }
 
-    // Método para guardar vehículos al cerrar el programa
+    // Metodo para guardar vehículos al cerrar el programa
     public static void guardarVehiculos() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(ARCHIVO_VEHICULOS))) {
             for (Vehiculo vehiculo : vehiculosRegistrados) {
