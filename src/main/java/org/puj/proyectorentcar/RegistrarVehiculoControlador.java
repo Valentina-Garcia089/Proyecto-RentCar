@@ -7,9 +7,10 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
+import org.puj.proyectorentcar.Negocio.Contrato;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
 
-public class RegistrarVehiculoControlador {
+public class RegistrarVehiculoControlador implements IControlador{
 
     @javafx.fxml.FXML
     private Slider sldCapacidadMotor;
@@ -39,8 +40,7 @@ public class RegistrarVehiculoControlador {
 
     // CREACIÓN DE OBJETOS
     GestorVistas vistas = new GestorVistas();
-    Vehiculo vehiculo;
-
+    Contrato contrato;
 
     @FXML
     public void onClickRegistrarVehiculo(ActionEvent actionEvent) {
@@ -84,7 +84,7 @@ public class RegistrarVehiculoControlador {
 
 
             // Se crea el vehiculo y la siguiente ventana
-            vehiculo = new Vehiculo(numSillas, numPuertas, capacidadMotor, color, placa, marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual);
+            Vehiculo vehiculo = new Vehiculo(numSillas, numPuertas, capacidadMotor, color, placa, marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual);
 
 
         } catch (Exception e) {
@@ -120,7 +120,10 @@ public class RegistrarVehiculoControlador {
             vistas.mostrarError("Campos requeridos", errores.toString());
             return false;
         }
-
         return true;
+    }
+
+    public void setContrato(Contrato contrato){
+        this.contrato = contrato;
     }
 }

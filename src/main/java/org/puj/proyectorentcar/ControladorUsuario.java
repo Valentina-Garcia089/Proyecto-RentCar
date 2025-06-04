@@ -8,9 +8,10 @@ import javafx.stage.Stage;
 import org.puj.proyectorentcar.Dominio.Arrendatario;
 import org.puj.proyectorentcar.Dominio.Cliente;
 import org.puj.proyectorentcar.Dominio.Usuario;
+import org.puj.proyectorentcar.Negocio.Contrato;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
 
-public class ControladorUsuario {
+public class ControladorUsuario implements IControlador{
     @FXML
     private TextField txtNumeroId;
     @FXML
@@ -38,6 +39,7 @@ public class ControladorUsuario {
     // Creación de objeto
     GestorVistas vistas = new GestorVistas();
     Usuario user;
+    Contrato contrato;
 
     @FXML
     public void initialize(){
@@ -105,11 +107,11 @@ public class ControladorUsuario {
             // Crear usuario según el tipo
             if ("Cliente".equals(tipoUsuario)) {
                 user = new Cliente(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
-                vistas.abrirVentana("/org/puj/proyectorentcar/alquiler-vehiculo.fxml", "Buscar vehiculo", actual);
+                vistas.abrirVentana("/org/puj/proyectorentcar/alquiler-vehiculo.fxml", "Buscar vehiculo", actual, this.contrato);
             }
             else if ("Arrendatario".equals(tipoUsuario)){
                 user = new Arrendatario(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
-                vistas.abrirVentana("/org/puj/proyectorentcar/registrar-vehiculo.fxml", "Registro Vehiculo", actual);
+                vistas.abrirVentana("/org/puj/proyectorentcar/registrar-vehiculo.fxml", "Registro Vehiculo", actual, this.contrato);
             }
 
         } catch (Exception e) {
@@ -175,6 +177,10 @@ public class ControladorUsuario {
         }
 
         return true;
+    }
+
+    public void setContrato(Contrato contrato){
+        this.contrato = contrato;
     }
 }
 

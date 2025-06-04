@@ -3,8 +3,10 @@ package org.puj.proyectorentcar;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
+import org.puj.proyectorentcar.Negocio.Contrato;
+import org.puj.proyectorentcar.Negocio.GestorVistas;
 
-public class SeleccionVehiculoControlador {
+public class SeleccionVehiculoControlador implements IControlador{
 
 
     @javafx.fxml.FXML
@@ -29,6 +31,9 @@ public class SeleccionVehiculoControlador {
     private ChoiceBox choiceSeguro;
     @javafx.fxml.FXML
     private ToggleButton onSeleccionServiciosAdd;
+
+    GestorVistas vistas = new GestorVistas();
+    Contrato contrato;
 
     @Deprecated
     public void onClickAgregarServicio(ActionEvent actionEvent) {
@@ -60,5 +65,11 @@ public class SeleccionVehiculoControlador {
 
     @javafx.fxml.FXML
     public void onClickAgregarSeguro(ActionEvent actionEvent) {
+    }
+
+
+    @Override
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }

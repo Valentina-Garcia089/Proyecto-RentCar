@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.puj.proyectorentcar.Dominio.Alquiler;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
+import org.puj.proyectorentcar.Negocio.Contrato;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
 
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ import java.time.LocalTime;
 import java.time.DateTimeException;
 import java.time.chrono.Chronology;
 
-public class AlquilerVehiculoControlador {
+public class AlquilerVehiculoControlador implements  IControlador{
 
     @javafx.fxml.FXML
     private TextField txtPaisActualIngresar;
@@ -37,6 +38,7 @@ public class AlquilerVehiculoControlador {
     private Button btnBuscarVehiculo;
 
     GestorVistas vistas = new GestorVistas();
+    Contrato contrato;
 
 
     @javafx.fxml.FXML
@@ -71,7 +73,7 @@ public class AlquilerVehiculoControlador {
 
                 Alquiler alquiler = new Alquiler(ciudadOrigenIngresar,paisActual,paisDestionoIngresar, oficinaRecogidaIngresar, ciudadDestinoIngresar, oficinaDevolucionIngresar, fechaEntrega, fechaDevolucion);
                 Stage actual = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                vistas.abrirVentana("/org/puj/proyectorentcar/seleccion-vehiculo.fxml", "Seleccionar Vehiculo", actual);
+                vistas.abrirVentana("/org/puj/proyectorentcar/seleccion-vehiculo.fxml", "Seleccionar Vehiculo", actual, this.contrato);
 
             } catch (DateTimeException e) {
                 vistas.mostrarError("Error de fecha", e.getMessage());
@@ -108,8 +110,12 @@ public class AlquilerVehiculoControlador {
             vistas.mostrarError("Campos requeridos", errores.toString());
             return false;
         }
-
         return true;
+    }
+
+    // Negocio con la información que se pasó para el controlador
+    public void setContrato (Contrato contrato){
+        this.contrato = contrato;
     }
 
 }

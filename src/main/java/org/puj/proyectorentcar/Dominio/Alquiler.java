@@ -15,7 +15,6 @@ public class Alquiler {
     private List<Pago> pago;
     private List<Seguro> seguro;
     private List<ServiciosAdd> serviciosAdds;
-    private Contrato contrato;
 
     public Alquiler(String ciudadOrg, String paisOrg, String paisDst, String oficinaRecogida, String ciudadDst, String oficinaDevolucion, LocalDate fechaEntrega, LocalDate fechaDevolucion) {
         this.ciudadOrg = ciudadOrg;
@@ -116,14 +115,6 @@ public class Alquiler {
         this.serviciosAdds = serviciosAdds;
     }
 
-    public Contrato getContrato() {
-        return contrato;
-    }
-
-    public void setContrato(Contrato contrato) {
-        this.contrato = contrato;
-    }
-
     @Override
     public String toString() {
         return "Alquiler{" +
@@ -138,7 +129,6 @@ public class Alquiler {
                 ", pago=" + pago +
                 ", seguro=" + seguro +
                 ", serviciosAdds=" + serviciosAdds +
-                ", contrato=" + contrato +
                 '}';
     }
 
@@ -154,11 +144,6 @@ public class Alquiler {
             this.seguro.add(e);
         }
     }
-    public void AgregarServiciosAdd(String tipo,float costo){
-        if(serviciosAdds.size()<4){
-            ServiciosAdd e=new ServiciosAdd(tipo,costo);
-            this.serviciosAdds.add(e);
-        }
-    }
+
 
 }
