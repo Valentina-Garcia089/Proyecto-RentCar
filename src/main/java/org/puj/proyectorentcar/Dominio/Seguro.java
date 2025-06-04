@@ -43,4 +43,5 @@ public class Seguro {
                 ", porcentajeRetencion=" + porcentajeRetencion +
                 '}';
     }
+
 }

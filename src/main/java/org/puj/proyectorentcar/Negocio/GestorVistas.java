@@ -4,14 +4,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import org.puj.proyectorentcar.IControlador;
 
 import java.io.IOException;
 
-public class GestorVistas {
-    public void abrirVentana(String rutaFXML, String titulo, Stage pasada){
+public class GestorVistas{
+    public void abrirVentana(String rutaFXML, String titulo, Stage pasada, Contrato contrato){
         try{
             FXMLLoader fxmlloader = new FXMLLoader(GestorVistas.class.getResource(rutaFXML));
             Scene scene = new Scene(fxmlloader.load());
+
+            // Asignar contrato al controlador (Persistencia de datos)
+            ((IControlador) fxmlloader.getController()).setContrato(contrato);
+
             Stage stage = new Stage();
             stage.setTitle(titulo);
             stage.setScene(scene);
