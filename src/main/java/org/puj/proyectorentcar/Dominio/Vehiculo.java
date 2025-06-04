@@ -39,7 +39,14 @@ public class Vehiculo {
         this.marca = marca;
         this.modelo = modelo;
         this.precioDia = precioDia;
-        this.tipoVehiculo = tipoVehiculo;
+        if(tipoVehiculo.equalsIgnoreCase("Automovil")){
+            this.tipoVehiculo = "Automovil";
+        }else if (tipoVehiculo.equalsIgnoreCase("Van")){
+            this.tipoVehiculo = "Van";
+        }else if (tipoVehiculo.equalsIgnoreCase("Camioneta")){
+            this.tipoVehiculo = "Camioneta";
+        }
+
         this.ciudad = ciudad;
         this.paisActual = paisActual;
 
@@ -124,13 +131,13 @@ public class Vehiculo {
 
         // Validar formato: 3 números seguidos de 3 letras
         for (int i = 0; i < 3; i++) {
-            if (!Character.isLetter(placa[i])) {
-                throw new PlacaException("Los primeros 3 caracteres deben ser letras");
+            if (!Character.isDigit(placa[i])) {
+                throw new PlacaException("Los primeros 3 caracteres deben ser números");
             }
         }
         for (int i = 3; i < 6; i++) {
-            if (!Character.isDigit(placa[i])) {
-                throw new PlacaException("Los últimos 3 caracteres deben ser numeros");
+            if (!Character.isLetter(placa[i])) {
+                throw new PlacaException("Los últimos 3 caracteres deben ser letras");
             }
         }
 
@@ -159,9 +166,9 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" +
+        return "tipoVehiculo=" + tipoVehiculo + " {" +
                 "marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", placa=" + new String(placa) + ", color='" + color + '\'' + ", precioDia=" + precioDia +
-                ", tipoVehiculo='" + tipoVehiculo + '\'' + ", ciudad='" + ciudad + '\'' + '}';
+                 '\'' + ", ciudad='" + ciudad + '\'' + '}';
     }
 }
 
