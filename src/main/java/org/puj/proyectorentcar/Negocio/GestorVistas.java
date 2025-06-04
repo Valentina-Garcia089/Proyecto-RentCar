@@ -16,7 +16,6 @@ public class GestorVistas {
             stage.setTitle(titulo);
             stage.setScene(scene);
             stage.show();
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAA");
             if(pasada != null)
                 pasada.close();
         }
