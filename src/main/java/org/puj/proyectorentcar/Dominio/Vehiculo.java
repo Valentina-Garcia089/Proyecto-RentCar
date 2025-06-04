@@ -47,6 +47,21 @@ public class Vehiculo {
         vehiculosRegistrados.add(this);
     }
 
+
+    public String exportar() {
+        return numSillas + "," +
+                numPuertas + "," +
+                capacidadMotor + "," +
+                color + "," +
+                String.valueOf(placa) + "," +
+                marca + "," +
+                modelo + "," +
+                precioDia + "," +
+                tipoVehiculo + "," +
+                ciudad + "," +
+                paisActual;
+    }
+
     // Constructor para cargar desde archivo (sin validación de placa duplicada)
     private Vehiculo(int numSillas, int numPuertas, float capacidadMotor, String color,
                      char[] placa, String marca, String modelo, float precioDia,
