@@ -3,33 +3,20 @@ package org.puj.proyectorentcar.Dominio;
 public class ServiciosAdd {
 
     private float costo;
+    private String tipo;
 
-    private String conductorAdicional = "Conductor adicional";
-    private String sillaBebe = "Silla bebé";
-    private String maletero = "Maletero";
-    private String dispositivoGps = "GPS";
-
-
-
-    public float obtenerCostoServicioPorTipo(String tipoServicio) {
-        switch (tipoServicio) {
-            case conductorAdicional:
-                return 50000f;
-            case sillaBebe:
-                return 100000f;
-            case maletero:
-                return 80000f;
-            case dispositivoGps:
-                return 30000f;
-            default:
-                return 0f;
+    public ServiciosAdd(float costo, String tipo) {
+        this.costo = costo;
+        if(tipo.equalsIgnoreCase("Conductor adicional")){
+            this.tipo = "Conductor adicional";
+        }else if (tipo.equalsIgnoreCase("Silla bebe")){
+            this.tipo = "Silla bebe";
+        }else if (tipo.equalsIgnoreCase("Maletero")){
+            this.tipo = "Maletero";
+        }else if(tipo.equalsIgnoreCase("GPS")) {
+            this.tipo = "GPS";
         }
     }
-
-    public float calcularCostoPorDias(int dias) {
-        return this.costo * dias;
-    }
-
 
     public float getCosto() {
         return costo;
@@ -39,5 +26,19 @@ public class ServiciosAdd {
         this.costo = costo;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
 
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "ServiciosAdd{" +
+                "costo=" + costo +
+                ", tipo='" + tipo + '\'' +
+                '}';
+    }
 }
