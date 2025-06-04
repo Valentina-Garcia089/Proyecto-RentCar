@@ -156,7 +156,7 @@ public class Alquiler {
     }
     public void AgregarServiciosAdd(String tipo,float costo){
         if(serviciosAdds.size()<4){
-            ServiciosAdd e=new ServiciosAdd(tipo,costo);
+            ServiciosAdd e=new ServiciosAdd(costo,tipo);
             this.serviciosAdds.add(e);
         }
     }
