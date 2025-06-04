@@ -15,17 +15,17 @@
          <Button fx:id="btnEliminarVehiculo" mnemonicParsing="false" onAction="#onClickEliminarVehiculo" text="Eliminar Vehiculo" translateX="-15.0" translateY="-194.0" />
          <Label text="Seguro" translateX="205.0" translateY="-495.0">
             <graphic>
-               <ToggleButton fx:id="toggleSeleccion" mnemonicParsing="false" onAction="#onSeleccionarSeguro" text="SI/NO" />
+               <ToggleButton fx:id="toggleSeleccionSeguro" mnemonicParsing="false" onAction="#onClickSeleccionarSeguro" text="SI/NO" />
             </graphic></Label>
          <ChoiceBox fx:id="choiceSeguro" prefWidth="150.0" translateX="205.0" translateY="-495.0" />
-         <Button fx:id="btnAgregarSeguro" mnemonicParsing="false" onAction="#onClickAgregarSeguro" text="Agregar" translateX="205.0" translateY="-495.0" />
+         <Button fx:id="btnAgregarSeguro" mnemonicParsing="false" onAction="#onClickAgregarSeguro" text="Agregar Seguro" translateX="205.0" translateY="-495.0" />
          <Label text="Servicios Adicionales" translateX="205.0" translateY="-470.0">
             <graphic>
-               <ToggleButton fx:id="onSeleccionServiciosAdd" mnemonicParsing="false" onAction="#onClickSeleccionarServicio" text="SI/NO" />
+               <ToggleButton fx:id="toggleSeleccionServiciosAdd" mnemonicParsing="false" onAction="#onClickSeleccionarServicio" text="SI/NO" />
             </graphic>
          </Label>
          <ChoiceBox fx:id="choiceServiciosAdd" prefWidth="150.0" translateX="205.0" translateY="-470.0" />
-         <Button fx:id="btnAgregarServiciosAdd" mnemonicParsing="false" onAction="#onClickAgregarServiciosAdd" text="Agregar" translateX="205.0" translateY="-470.0" />
+         <Button fx:id="btnAgregarServiciosAdd" mnemonicParsing="false" onAction="#onClickAgregarServiciosAdd" text="Agregar Servicio" translateX="205.0" translateY="-470.0" />
             <Button fx:id="btnPagar" mnemonicParsing="false" onAction="#onClickPagar" text="Pagar" translateX="210.0" translateY="-390.0" />
         </children>
     </VBox>

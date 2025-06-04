@@ -106,17 +106,18 @@ public class ControladorUsuario implements IControlador{
 
             // Crear usuario según el tipo
             if ("Cliente".equals(tipoUsuario)) {
-                user = new Cliente(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
-                vistas.abrirVentana("/org/puj/proyectorentcar/alquiler-vehiculo.fxml", "Buscar vehiculo", actual, this.contrato);
+                Cliente cliente = new Cliente(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
+                if(contrato.guardarClienteArchivo("Clientes.txt", cliente))
+                    vistas.abrirVentana("/org/puj/proyectorentcar/alquiler-vehiculo.fxml", "Buscar vehiculo", actual, this.contrato);
             }
             else if ("Arrendatario".equals(tipoUsuario)){
-                user = new Arrendatario(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
+                Arrendatario arrendatario = new Arrendatario(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
                 vistas.abrirVentana("/org/puj/proyectorentcar/registrar-vehiculo.fxml", "Registro Vehiculo", actual, this.contrato);
             }
 
         } catch (Exception e) {
             // Captura cualquier otra excepción
-            vistas.mostrarError("Error inesperado", "Ha ocurrido un error: " + e.getMessage());
+            vistas.mostrarError("Error inesperado", "Ha ocurrido un error en ControladorUsuario: " + e.getMessage());
             e.printStackTrace();
         }
     }

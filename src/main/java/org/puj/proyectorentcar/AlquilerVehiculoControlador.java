@@ -79,7 +79,7 @@ public class AlquilerVehiculoControlador implements IControlador{
             }
         } catch (Exception e) {
             // Captura cualquier otra excepción
-            vistas.mostrarError("Error inesperado", "Ha ocurrido un error: " + e.getMessage());
+            vistas.mostrarError("Error inesperado", "Ha ocurrido un error en AlquilerVehiculoControlador: " + e.getMessage());
             e.printStackTrace();
         }
     }

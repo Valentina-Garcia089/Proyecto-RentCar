@@ -4,12 +4,15 @@ import org.puj.proyectorentcar.Dominio.Alquiler;
 import org.puj.proyectorentcar.Dominio.Arrendatario;
 import org.puj.proyectorentcar.Dominio.Cliente;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
+import org.puj.proyectorentcar.Util.GestorArchivos;
 
 public class Contrato {
     Cliente cliente;
     Arrendatario arrendatario;
     Vehiculo vehiculo;
     Alquiler alquiler;
+
+    GestorArchivos archivos = new GestorArchivos();
 
     public Cliente getCliente(){
         return cliente;
@@ -26,5 +29,30 @@ public class Contrato {
     public Alquiler getAlquiler(){
         return alquiler;
     }
+
+    public boolean guardarClienteArchivo(String nombreArchivo, Cliente cliente){
+        if(archivos.agregarCliente(nombreArchivo, cliente)){
+            this.cliente = cliente;
+            System.out.println("ES VERDADEROOOOOO");
+            return true;
+        }
+        else{
+            System.out.println("ES FALSOOOOOOO");
+            return false;
+        }
+    }
+
+    public boolean guardarVehiculoArchivo(String nombreArchivo, Vehiculo vehiculo){
+        if(archivos.agregarVehiculo(nombreArchivo, vehiculo)){
+            this.vehiculo = vehiculo;
+            return true;
+        }
+        return false;
+    }
+
+    /*public boolean leerArchivoVehiculos(String nombreArchivo){
+        if(archivos
+    }*/
+
 
 }

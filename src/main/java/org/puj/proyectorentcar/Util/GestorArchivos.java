@@ -17,17 +17,19 @@ public class GestorArchivos {
 
 
     // Agregar 1 cliente sin borrar el archivo existente
-    public static void agregarCliente(String nombreArchivo, Cliente cliente) {
+    public boolean agregarCliente(String nombreArchivo, Cliente cliente) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo, true))) {
             writer.write(cliente.exportar());
             writer.newLine();
+            return true;
         } catch (IOException e) {
             System.err.println("Error al escribir cliente en el archivo: " + e.getMessage());
+            return false;
         }
     }
 
     // Agregar 1 arrendatario sin borrar el archivo existente
-    public static void agregarArrendatario(String nombreArchivo, Arrendatario arrendatario) {
+    public void agregarArrendatario(String nombreArchivo, Arrendatario arrendatario) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo, true))) {
             writer.write(arrendatario.exportar());
             writer.newLine();
@@ -37,15 +39,15 @@ public class GestorArchivos {
     }
 
     // Agregar 1 vehículo sin borrar el archivo existente
-    public static void agregarVehiculo(String nombreArchivo, Vehiculo vehiculo) {
+    public boolean agregarVehiculo(String nombreArchivo, Vehiculo vehiculo) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo, true))) {
             writer.write(vehiculo.exportar());
             writer.newLine();
+            return true;
         } catch (IOException e) {
             System.err.println("Error al escribir vehículo en el archivo: " + e.getMessage());
         }
-
-
+        return false;
     }
 
     public static List<Vehiculo> leerVehiculos(String nombreArchivo) {

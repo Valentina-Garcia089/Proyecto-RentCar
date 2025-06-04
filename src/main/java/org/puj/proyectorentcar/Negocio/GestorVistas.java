@@ -41,11 +41,11 @@ public class GestorVistas{
 
     //mensaje de bien :)
 
-    /*public void mostrarExito(String titulo, String mensaje) {
+    public void mostrarExito(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Éxito");
         alert.setHeaderText(titulo);
         alert.setContentText(mensaje);
         alert.showAndWait();
-    }*/
+    }
 }

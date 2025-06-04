@@ -16,8 +16,6 @@ public class SeleccionVehiculoControlador implements IControlador{
     @javafx.fxml.FXML
     private ChoiceBox choiceServiciosAdd;
     @javafx.fxml.FXML
-    private ToggleButton toggleSeleccion;
-    @javafx.fxml.FXML
     private Button btnAgregarServiciosAdd;
     @javafx.fxml.FXML
     private ListView <Vehiculo> listViewVehiculoSeleccionado;
@@ -30,10 +28,51 @@ public class SeleccionVehiculoControlador implements IControlador{
     @javafx.fxml.FXML
     private ChoiceBox choiceSeguro;
     @javafx.fxml.FXML
-    private ToggleButton onSeleccionServiciosAdd;
+    private ToggleButton toggleSeleccionSeguro;
+    @javafx.fxml.FXML
+    private ToggleButton toggleSeleccionServiciosAdd;
 
     GestorVistas vistas = new GestorVistas();
     Contrato contrato;
+
+    public void initialize(){
+        // Desactivar los choiceBox por defecto hasta que este tenga un valor especifico
+        choiceSeguro.setDisable(true);
+        btnAgregarSeguro.setDisable(true);
+        toggleSeleccionSeguro.setText("No");
+
+        choiceServiciosAdd.setDisable(true);
+        btnAgregarServiciosAdd.setDisable(true);
+        toggleSeleccionServiciosAdd.setText("No");
+
+        // Función flecha para activar los choiceBox cuando los toggles también estén activos
+        toggleSeleccionSeguro.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
+            if (isNowSelected){
+                choiceSeguro.setDisable(false);
+                btnAgregarSeguro.setDisable(false);
+                toggleSeleccionSeguro.setText("Si");
+            }else {
+                choiceSeguro.setDisable(true);
+                btnAgregarSeguro.setDisable(true);
+                toggleSeleccionSeguro.setText("No");;
+                choiceSeguro.getSelectionModel().clearSelection();
+            }
+        });
+
+        toggleSeleccionServiciosAdd.selectedProperty().addListener((obs, wasSelected, isNowSelected)->{
+            if (isNowSelected){
+                choiceServiciosAdd.setDisable(false);
+                btnAgregarServiciosAdd.setDisable(false);
+                toggleSeleccionServiciosAdd.setText("Si");
+            }else {
+                choiceServiciosAdd.setDisable(true);
+                btnAgregarServiciosAdd.setDisable(true);
+                toggleSeleccionServiciosAdd.setText("No");
+                choiceServiciosAdd.getSelectionModel().clearSelection();
+            }
+        });
+    }
+
 
     @Deprecated
     public void onClickAgregarServicio(ActionEvent actionEvent) {
@@ -51,7 +90,7 @@ public class SeleccionVehiculoControlador implements IControlador{
     public void onClickSeleccionarServicio(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void onSeleccionarSeguro(ActionEvent actionEvent) {
     }
 
@@ -71,5 +110,9 @@ public class SeleccionVehiculoControlador implements IControlador{
     @Override
     public void setContrato(Contrato contrato) {
         this.contrato = contrato;
+    }
+
+    @javafx.fxml.FXML
+    public void onClickSeleccionarSeguro(ActionEvent actionEvent) {
     }
 }

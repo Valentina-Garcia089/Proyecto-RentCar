@@ -32,9 +32,9 @@
                 <TextField fx:id="txtOficinaDevolucionIngresar" onAction="#onClickBuscarVehiculo" translateY="-146.0" />
 
                 <Label prefWidth="95.0" text="Fecha de Entrega" translateX="7.0" translateY="-146.0" />
-            <DatePicker fx:id="dateEntrega" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefWidth="90.0" translateX="7.0" translateY="-146.0" />
+            <DatePicker fx:id="dateEntrega" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="90.0" translateX="7.0" translateY="-146.0" />
                 <Label text="Fecha Devolución" translateX="114.0" translateY="-219.0" />
-            <DatePicker fx:id="dateDevolucion" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickBuscarVehiculo" prefWidth="90.0" translateX="115.0" translateY="-219.0" />
+            <DatePicker fx:id="dateDevolucion" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="90.0" translateX="115.0" translateY="-219.0" />
 
                 <Button fx:id="btnBuscarVehiculo" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickBuscarVehiculo" prefWidth="100.0" text="Buscar Vehiculo" translateY="-210.0">
                     <VBox.margin>
