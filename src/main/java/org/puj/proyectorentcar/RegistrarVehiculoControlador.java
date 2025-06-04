@@ -85,7 +85,7 @@ public class RegistrarVehiculoControlador implements IControlador{
 
             // Se crea el vehiculo y la siguiente ventana
             Vehiculo vehiculo = new Vehiculo(numSillas, numPuertas, capacidadMotor, color, placa, marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual);
-            if (contrato.guardarVehiculoArchivo("Vehiculos.txt", vehiculo))
+            if (contrato.guardarVehiculoArchivo("Data/Vehiculos.txt", vehiculo))
                 vistas.mostrarExito("Vehiculo Registrado", "El vehiculo fue registrado correctamente");
                 
             

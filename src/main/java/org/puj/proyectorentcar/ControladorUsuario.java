@@ -107,12 +107,13 @@ public class ControladorUsuario implements IControlador{
             // Crear usuario según el tipo
             if ("Cliente".equals(tipoUsuario)) {
                 Cliente cliente = new Cliente(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
-                if(contrato.guardarClienteArchivo("Clientes.txt", cliente))
+                if(contrato.guardarClienteArchivo("Data/Clientes.txt", cliente))
                     vistas.abrirVentana("/org/puj/proyectorentcar/alquiler-vehiculo.fxml", "Buscar vehiculo", actual, this.contrato);
             }
             else if ("Arrendatario".equals(tipoUsuario)){
                 Arrendatario arrendatario = new Arrendatario(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
-                vistas.abrirVentana("/org/puj/proyectorentcar/registrar-vehiculo.fxml", "Registro Vehiculo", actual, this.contrato);
+                if(contrato.guardarArrendatarioArchivo("Data/Arrendatarios.txt", arrendatario))
+                    vistas.abrirVentana("/org/puj/proyectorentcar/registrar-vehiculo.fxml", "Registro Vehiculo", actual, this.contrato);
             }
 
         } catch (Exception e) {

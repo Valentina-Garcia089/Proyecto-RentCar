@@ -41,6 +41,17 @@ public class Contrato {
             return false;
         }
     }
+    public boolean guardarArrendatarioArchivo(String nombreArchivo, Arrendatario arrendatario){
+        if(archivos.agregarArrendatario(nombreArchivo, arrendatario)){
+            this.arrendatario = arrendatario;
+            System.out.println("ES VERDADEROOOOOO");
+            return true;
+        }
+        else{
+            System.out.println("ES FALSOOOOOOO");
+            return false;
+        }
+    }
 
     public boolean guardarVehiculoArchivo(String nombreArchivo, Vehiculo vehiculo){
         if(archivos.agregarVehiculo(nombreArchivo, vehiculo)){
