@@ -1,9 +1,6 @@
 package org.puj.proyectorentcar.Negocio;
 
-import org.puj.proyectorentcar.Dominio.Alquiler;
-import org.puj.proyectorentcar.Dominio.Arrendatario;
-import org.puj.proyectorentcar.Dominio.Cliente;
-import org.puj.proyectorentcar.Dominio.Vehiculo;
+import org.puj.proyectorentcar.Dominio.*;
 import org.puj.proyectorentcar.Util.GestorArchivos;
 
 import java.util.ArrayList;
@@ -14,8 +11,25 @@ public class Contrato {
     Vehiculo vehiculo;
     Alquiler alquiler;
     ArrayList <Vehiculo> listaVehiculos = new ArrayList<>();
+    ArrayList <Seguro> listaSeguros = new ArrayList<>();
+    ArrayList <ServiciosAdd> listaServiciosAdd = new ArrayList<>();
     GestorArchivos archivos = new GestorArchivos();
 
+    public ArrayList<ServiciosAdd> getListaServiciosAdd() {
+        return listaServiciosAdd;
+    }
+
+    public void setListaServiciosAdd(ArrayList<ServiciosAdd> listaServiciosAdd) {
+        this.listaServiciosAdd = listaServiciosAdd;
+    }
+
+    public ArrayList<Seguro> getListaSeguros() {
+        return listaSeguros;
+    }
+
+    public void setListaSeguros(ArrayList<Seguro> listaSeguros) {
+        this.listaSeguros = listaSeguros;
+    }
 
     public void setAlquiler(Alquiler alquiler) {
         this.alquiler = alquiler;
@@ -75,7 +89,15 @@ public class Contrato {
     public boolean guardarVehiculoArchivo(String nombreArchivo, Vehiculo vehiculo){
         if(archivos.agregarVehiculo(nombreArchivo, vehiculo)){
             this.vehiculo = vehiculo;
-            System.out.println("El valor de vehiculo es: " + getVehiculo());
+            //System.out.println("El valor de vehiculo es: " + getVehiculo());
+            return true;
+        }
+        return false;
+    }
+
+    public boolean sobrescribirVehiculos(String nombreArchivo, ArrayList<Vehiculo> listaVehiculos){
+        if (archivos.sobrescribirVehiculos(nombreArchivo, listaVehiculos)) {
+            this.listaVehiculos = listaVehiculos;
             return true;
         }
         return false;

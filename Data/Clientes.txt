@@ -21,3 +21,8 @@ dfsd,sdfsd,5243534,sfsd,345345,@,CC,4235345,Cliente,4354325
 dfdf,gdfgdf,23234,refdgdf,324234,@,CC,23432,Cliente,egervf
 dgdx,sdgfdfg,2335,dfgdgdfg,34234,@@@,CC,23235,Cliente,frsgdfg
 gdfgdfx,dfgdfg,23432,dfgdf,234234,@@,CC,234234,Cliente,dfsdg
+sfsdfsd,sdsdfds,19,fsdfdsdf,23123,@,CC,2324233,Cliente,sfsdf45345
+ASDASDAS,SDASDAS,19,SDSDGSFG,12312342,@@@,CC,23423423,Cliente,SAFSDF34
+sfsdf,ffsdfs,19,dfsdfdsf,2423432,@@@,CC,423423,Cliente,dsferfer5454dsf
+DFSDFD,DSFSDF,23423,BDBDFBFB,324234,@@@@@@@,CC,32432432,Cliente,SDFSD34R
+dasdas,asdasd,23423,fsdf,423432,@@@@@@@q,CC,34234,Cliente,sdfsdf

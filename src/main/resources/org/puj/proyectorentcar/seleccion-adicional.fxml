@@ -12,7 +12,7 @@
             <ListView fx:id="listViewSeguros" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="240.0" scaleX="0.75" scaleY="1.25" translateX="-210.0" translateY="72.0" />
             <Button fx:id="btnEliminarSeguro" mnemonicParsing="false" onAction="#onClickEliminarSeguro" text="Eliminar Seguro" translateX="-210.0" translateY="102.0" />
             <ListView fx:id="listViewServicios" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="180.0" translateX="-15.0" translateY="-200.0" />
-            <Button fx:id="btnEliminarServicio" mnemonicParsing="false" onAction="#onClickEliminarSericio" text="Eliminar Servicio" translateX="-15.0" translateY="-194.0" />
+            <Button fx:id="btnEliminarServicio" mnemonicParsing="false" onAction="#onClickEliminarServicio" text="Eliminar Servicio" translateX="-15.0" translateY="-194.0" />
             <Label text="Seguro" translateX="205.0" translateY="-520.0">
                 <graphic>
                     <ToggleButton fx:id="toggleSeleccionSeguro" mnemonicParsing="false" onAction="#onClickSeleccionarSeguro" text="SI/NO" />

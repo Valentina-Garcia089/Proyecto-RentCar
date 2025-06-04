@@ -29,7 +29,7 @@
                 <Label text="Precio por Día" translateY="-35.0" />
                 <TextField fx:id="txtPrecioIngresar" onAction="#onClickRegistrarVehiculo" translateY="-35.0" />
                 <Label text="Tipo de Vehiculo" translateY="-35.0" />
-                <TextField fx:id="txtTipoVehiculoIngresar" onAction="#onClickRegistrarVehiculo" translateY="-35.0" />
+            <ChoiceBox fx:id="choiceTipoVehiculo" prefWidth="150.0" />
 
                 <Label text="Ciudad" translateY="-10.0" />
             <TextField fx:id="txtCiudadIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefWidth="99.0" translateY="-10.0" />

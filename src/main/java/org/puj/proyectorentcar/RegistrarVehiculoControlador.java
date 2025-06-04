@@ -2,10 +2,7 @@ package org.puj.proyectorentcar;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
 import org.puj.proyectorentcar.Negocio.Contrato;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
@@ -27,8 +24,6 @@ public class RegistrarVehiculoControlador implements IControlador{
     @javafx.fxml.FXML
     private TextField txtNumSillasIngresar;
     @javafx.fxml.FXML
-    private TextField txtTipoVehiculoIngresar;
-    @javafx.fxml.FXML
     private TextField txtPaisIngresar;
     @javafx.fxml.FXML
     private TextField txtPlacaIngresar;
@@ -36,11 +31,18 @@ public class RegistrarVehiculoControlador implements IControlador{
     private ColorPicker colorVehiculo;
     @javafx.fxml.FXML
     private TextField txtModeloIngresar;
+    @FXML
+    private ChoiceBox <String> choiceTipoVehiculo;
 
 
     // CREACIÓN DE OBJETOS
     GestorVistas vistas = new GestorVistas();
     Contrato contrato;
+
+    public void initialize(){
+        choiceTipoVehiculo.getItems().addAll("Automovil", "Van", "Camioneta");
+    }
+
 
     @FXML
     public void onClickRegistrarVehiculo(ActionEvent actionEvent) {
@@ -52,7 +54,7 @@ public class RegistrarVehiculoControlador implements IControlador{
             String modelo = txtModeloIngresar.getText();
             String ciudad = txtCiudadIngresar.getText();
             String marca = txtMarcaIngresar.getText();
-            String tipoVehiculo = txtTipoVehiculoIngresar.getText();
+            String tipoVehiculo = choiceTipoVehiculo.getValue();
             String paisActual = txtPaisIngresar.getText();
             char[] placa = txtPlacaIngresar.getText().toCharArray();
             String color = String.valueOf(colorVehiculo.getValue());
@@ -84,7 +86,7 @@ public class RegistrarVehiculoControlador implements IControlador{
 
 
             // Se crea el vehiculo y la siguiente ventana
-            Vehiculo vehiculo = new Vehiculo(numSillas, numPuertas, capacidadMotor, color, placa, marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual);
+            Vehiculo vehiculo = new Vehiculo(numSillas, numPuertas, capacidadMotor, color, placa, marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual, true, true);
             if (contrato.guardarVehiculoArchivo("Data/Vehiculos.txt", vehiculo))
                 vistas.mostrarExito("Vehiculo Registrado", "El vehiculo fue registrado correctamente");
                 
@@ -113,7 +115,7 @@ public class RegistrarVehiculoControlador implements IControlador{
             errores.append("Debe llenar el campo de precio.\n");
         if (txtNumSillasIngresar.getText().trim().isEmpty())
             errores.append("Debe llenar el campo de numero de sillas.\n");
-        if (txtTipoVehiculoIngresar.getText().trim().isEmpty())
+        if (choiceTipoVehiculo.getValue() == null)
             errores.append("Debe llenar el campo de tipo de vehiculo.\n");
         if (txtPaisIngresar.getText().trim().isEmpty())
             errores.append("Debe lleanr el campo de pais.\n");

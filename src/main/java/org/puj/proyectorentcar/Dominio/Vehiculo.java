@@ -21,9 +21,11 @@ public class Vehiculo {
     private String tipoVehiculo;
     private String ciudad;
     private String paisActual;
+    private boolean disponible;
+
 
     public Vehiculo(int numSillas, int numPuertas, float capacidadMotor, String color, char[] placa, String marca, String modelo, float precioDia,
-                    String tipoVehiculo, String ciudad, String paisActual)  throws PlacaException {
+                    String tipoVehiculo, String ciudad, String paisActual, boolean disponible, boolean validarPlaca)  throws PlacaException {
         this.numSillas = numSillas;
         this.numPuertas = numPuertas;
         this.capacidadMotor = capacidadMotor;
@@ -31,7 +33,7 @@ public class Vehiculo {
         this.placa = placa;
 
         String Placaa = new String(placa);
-        if (placasRegistradas.contains(Placaa)) {
+        if (validarPlaca && placasRegistradas.contains(Placaa)) {
             throw new PlacaException("La placa " + Placaa + " ya está registrada en el sistema");
         }
 
@@ -50,6 +52,8 @@ public class Vehiculo {
         this.ciudad = ciudad;
         this.paisActual = paisActual;
 
+        this.disponible = disponible;
+
         placasRegistradas.add(new String(this.placa));
         vehiculosRegistrados.add(this);
     }
@@ -66,13 +70,14 @@ public class Vehiculo {
                 precioDia + "," +
                 tipoVehiculo + "," +
                 ciudad + "," +
-                paisActual;
+                paisActual + "," +
+                disponible;
     }
 
     // Constructor para cargar desde archivo (sin validación de placa duplicada)
     private Vehiculo(int numSillas, int numPuertas, float capacidadMotor, String color,
                      char[] placa, String marca, String modelo, float precioDia,
-                     String tipoVehiculo, String ciudad, String paisActual, boolean fromFile) {
+                     String tipoVehiculo, String ciudad, String paisActual, boolean fromFile, boolean disponible, boolean validarPlaca) {
         this.numSillas = numSillas;
         this.numPuertas = numPuertas;
         this.capacidadMotor = capacidadMotor;
@@ -84,6 +89,7 @@ public class Vehiculo {
         this.tipoVehiculo = tipoVehiculo;
         this.ciudad = ciudad;
         this.paisActual = paisActual;
+        this.disponible = disponible;
     }
 
     public boolean verificarPlacaExistente() {
@@ -163,6 +169,15 @@ public class Vehiculo {
 
     public String getPaisActual() { return paisActual; }
     public void setPaisActual(String paisActual) { this.paisActual = paisActual; }
+
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
 
     @Override
     public String toString() {

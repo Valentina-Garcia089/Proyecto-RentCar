@@ -29,45 +29,6 @@ public class SeleccionVehiculoControlador implements IControlador{
     Contrato contrato;
 
 
-    /*public void initialize(){
-        // Desactivar los choiceBox por defecto hasta que este tenga un valor especifico
-        choiceSeguro.setDisable(true);
-        btnAgregarSeguro.setDisable(true);
-        toggleSeleccionSeguro.setText("No");
-
-        choiceServiciosAdd.setDisable(true);
-        btnAgregarServiciosAdd.setDisable(true);
-        toggleSeleccionServiciosAdd.setText("No");
-
-        // Función flecha para activar los choiceBox cuando los toggles también estén activos
-        toggleSeleccionSeguro.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
-            if (isNowSelected){
-                choiceSeguro.setDisable(false);
-                btnAgregarSeguro.setDisable(false);
-                toggleSeleccionSeguro.setText("Si");
-            }else {
-                choiceSeguro.setDisable(true);
-                btnAgregarSeguro.setDisable(true);
-                toggleSeleccionSeguro.setText("No");;
-                choiceSeguro.getSelectionModel().clearSelection();
-            }
-        });
-
-        toggleSeleccionServiciosAdd.selectedProperty().addListener((obs, wasSelected, isNowSelected)->{
-            if (isNowSelected){
-                choiceServiciosAdd.setDisable(false);
-                btnAgregarServiciosAdd.setDisable(false);
-                toggleSeleccionServiciosAdd.setText("Si");
-            }else {
-                choiceServiciosAdd.setDisable(true);
-                btnAgregarServiciosAdd.setDisable(true);
-                toggleSeleccionServiciosAdd.setText("No");
-                choiceServiciosAdd.getSelectionModel().clearSelection();
-            }
-        });
-    }*/
-
-
 
     @javafx.fxml.FXML
     public void onClickEliminarVehiculo(ActionEvent actionEvent) {
@@ -98,10 +59,26 @@ public class SeleccionVehiculoControlador implements IControlador{
     public void onClickPagar(ActionEvent actionEvent) {
         if(!listViewVehiculoSeleccionado.getItems().isEmpty()){
             Vehiculo vehiculo = listViewVehiculoSeleccionado.getItems().get(0);
-            System.out.println("LOS VALORES A GUARDAR SON: " + vehiculo);
-            contrato.setVehiculo(vehiculo);
-            Stage actual = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            vistas.abrirVentana("/org/puj/proyectorentcar/seleccion-adicional.fxml", "Selección de servicios adicionales", actual, this.contrato);
+            vehiculo.setDisponible(false); // Ya el vehiculo no estará disponible
+
+            ArrayList <Vehiculo> listaVehiculos = contrato.leerArchivoVehiculos("Data/Vehiculos.txt");
+            for (int i = 0; i < listaVehiculos.size(); i++) {
+                if (listaVehiculos.get(i).getPlaca().equals(vehiculo.getPlaca())) {
+                    listaVehiculos.set(i, vehiculo); // Cambio con nueva disponibilidad
+                    break;
+                }
+            }
+
+
+            if (contrato.sobrescribirVehiculos("Data/Vehiculos.txt", listaVehiculos)){
+                contrato.setVehiculo(vehiculo);
+                Stage actual = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                vistas.abrirVentana("/org/puj/proyectorentcar/seleccion-adicional.fxml", "Selección de servicios adicionales", actual, this.contrato);
+            }
+            else{
+                vistas.mostrarError("Error", "No fue posible cambiar la disponibilidad del vehiculo");
+            }
+
         }
         else {
             vistas.mostrarError("Vehiculo no seleccionado", "Debe seleccionar un vehiculo para continuar");

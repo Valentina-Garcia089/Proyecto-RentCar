@@ -52,6 +52,20 @@ public class GestorArchivos {
         return false;
     }
 
+
+    public boolean sobrescribirVehiculos(String nombreArchivo, ArrayList<Vehiculo> listaVehiculos) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo, false))) {
+            for (Vehiculo v : listaVehiculos) {
+                writer.write(v.exportar());
+                writer.newLine();
+            }
+            return true;
+        } catch (IOException e) {
+            System.err.println("Error al sobrescribir archivo de vehículos: " + e.getMessage());
+        }
+        return false;
+    }
+
     public ArrayList<Vehiculo> leerVehiculos(String nombreArchivo) {
         ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 
@@ -61,7 +75,7 @@ public class GestorArchivos {
             while ((linea = reader.readLine()) != null) {
                 String[] partes = linea.split(",");
 
-                if (partes.length == 11) {
+                if (partes.length == 12) {
                     int numSillas = Integer.parseInt(partes[0]);
                     int numPuertas = Integer.parseInt(partes[1]);
                     float capacidadMotor = Float.parseFloat(partes[2]);
@@ -73,9 +87,10 @@ public class GestorArchivos {
                     String tipoVehiculo = partes[8];
                     String ciudad = partes[9];
                     String paisActual = partes[10];
+                    boolean disponible = Boolean.parseBoolean(partes[11]);
 
                     Vehiculo vehiculo = new Vehiculo(numSillas, numPuertas, capacidadMotor, color,
-                            placa, marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual);
+                            placa, marca, modelo, precioDia, tipoVehiculo, ciudad, paisActual, disponible, false);
 
                     vehiculos.add(vehiculo);
                 } else {

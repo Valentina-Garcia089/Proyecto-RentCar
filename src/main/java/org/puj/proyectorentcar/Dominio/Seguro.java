@@ -3,21 +3,21 @@ package org.puj.proyectorentcar.Dominio;
 public class Seguro {
     private String tipo;
     private float costo;
-    private float porcentajeRetencion;
+    private double porcentajeRetencion;
 
     public Seguro(String tipo) {
         if(tipo.equalsIgnoreCase("Sin seguro")){
             this.tipo = "Sin seguro";
             this.costo = 0;
-            this.porcentajeRetencion = 70;
+            this.porcentajeRetencion = 0.7;
         }else if (tipo.equalsIgnoreCase("Seguro llantas")){
             this.tipo = "Seguro llantas";
             this.costo = 300000;
-            this.porcentajeRetencion = 40;
-        }else if (tipo.equalsIgnoreCase("Seguro vidiros")){
+            this.porcentajeRetencion = 0.4;
+        }else if (tipo.equalsIgnoreCase("Seguro vidrios")){
             this.tipo = "Seguro vidiros";
             this.costo = 100000;
-            this.porcentajeRetencion = 20;
+            this.porcentajeRetencion = 0.2;
         }else if(tipo.equalsIgnoreCase("Todo riesgo")) {
             this.tipo = "Todo riesgo";
             this.costo = 500000;
@@ -41,7 +41,7 @@ public class Seguro {
         this.costo = costo;
     }
 
-    public float getPorcentajeRetencion() {
+    public double getPorcentajeRetencion() {
         return porcentajeRetencion;
     }
 
