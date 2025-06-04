@@ -5,7 +5,7 @@ public class Seguro {
     private float costo;
     private float porcentajeRetencion;
 
-    public Seguro(String tipo, float costo, float porcentajeRetencion) {
+    public Seguro(String tipo) {
         if(tipo.equalsIgnoreCase("Sin seguro")){
             this.tipo = "Sin seguro";
             this.costo = 0;

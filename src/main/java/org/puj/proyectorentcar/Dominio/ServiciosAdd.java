@@ -5,7 +5,7 @@ public class ServiciosAdd {
     private float costo;
     private String tipo;
 
-    public ServiciosAdd(float costo, String tipo) {
+    public ServiciosAdd(String tipo) {
         this.costo = costo;
         if(tipo.equalsIgnoreCase("Conductor adicional")){
             this.tipo = "Conductor adicional";
