@@ -70,6 +70,7 @@ public class BuscarVehiculoControlador implements IControlador{
                 }
 
                 Alquiler alquiler = new Alquiler(ciudadOrigenIngresar,paisActual,paisDestionoIngresar, oficinaRecogidaIngresar, ciudadDestinoIngresar, oficinaDevolucionIngresar, fechaEntrega, fechaDevolucion);
+                contrato.setAlquiler(alquiler);
                 Stage actual = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 vistas.abrirVentana("/org/puj/proyectorentcar/seleccion-vehiculo.fxml", "Seleccionar Vehiculo", actual, this.contrato);
 

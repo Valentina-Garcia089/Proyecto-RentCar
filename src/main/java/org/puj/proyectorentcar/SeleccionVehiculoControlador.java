@@ -10,6 +10,7 @@ import org.puj.proyectorentcar.Negocio.GestorVistas;
 import org.puj.proyectorentcar.Util.GestorArchivos;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SeleccionVehiculoControlador implements IControlador{
 
@@ -55,16 +56,23 @@ public class SeleccionVehiculoControlador implements IControlador{
         }
     }
 
+
+
     @javafx.fxml.FXML
     public void onClickPagar(ActionEvent actionEvent) {
         if(!listViewVehiculoSeleccionado.getItems().isEmpty()){
             Vehiculo vehiculo = listViewVehiculoSeleccionado.getItems().get(0);
-            vehiculo.setDisponible(false); // Ya el vehiculo no estará disponible
+            //vehiculo.setDisponible(false); // Ya el vehiculo no estará disponible
+            System.out.println("La lista de vehiculos tiene los siguientes datos: " + vehiculo.getDisponible());
 
             ArrayList <Vehiculo> listaVehiculos = contrato.leerArchivoVehiculos("Data/Vehiculos.txt");
             for (int i = 0; i < listaVehiculos.size(); i++) {
-                if (listaVehiculos.get(i).getPlaca().equals(vehiculo.getPlaca())) {
-                    listaVehiculos.set(i, vehiculo); // Cambio con nueva disponibilidad
+                String placaLista = Arrays.toString(listaVehiculos.get(i).getPlaca());
+                String placaSeleccionado = Arrays.toString(vehiculo.getPlaca());
+
+                if (Arrays.equals(listaVehiculos.get(i).getPlaca(), vehiculo.getPlaca())) {
+                    vehiculo.setDisponible(false);// cambiar estado
+                    listaVehiculos.set(i, vehiculo);// actualizar la lista
                     break;
                 }
             }
@@ -91,8 +99,25 @@ public class SeleccionVehiculoControlador implements IControlador{
     public void setContrato(Contrato contrato) {
         this.contrato = contrato;
         ArrayList <Vehiculo> traerVehiculos = contrato.leerArchivoVehiculos("Data/Vehiculos.txt");
-        if (traerVehiculos != null) {
+        ArrayList <Vehiculo> listaFiltrada = new ArrayList<>();
+
+        for(Vehiculo vh : traerVehiculos){
+            if(contrato.getAlquiler().getCiudadOrg().equals(vh.getCiudad())){
+                if (contrato.getAlquiler().getPaisOrg().equals(vh.getPaisActual())){
+                    if(vh.getDisponible()){
+                        listaFiltrada.add(vh);
+                    }
+                }
+            }
+
+        }
+
+        /*if (traerVehiculos != null) {
             listViewVehiculosEncontrados.getItems().addAll(traerVehiculos);
+        }*/
+
+        if (listaFiltrada != null){
+            listViewVehiculosEncontrados.getItems().addAll(listaFiltrada);
         }
     }
 

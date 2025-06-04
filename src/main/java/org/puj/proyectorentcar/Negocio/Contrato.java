@@ -89,7 +89,7 @@ public class Contrato {
     public boolean guardarVehiculoArchivo(String nombreArchivo, Vehiculo vehiculo){
         if(archivos.agregarVehiculo(nombreArchivo, vehiculo)){
             this.vehiculo = vehiculo;
-            //System.out.println("El valor de vehiculo es: " + getVehiculo());
+            // System.out.println("El valor de vehiculo es: " + getVehiculo());
             return true;
         }
         return false;

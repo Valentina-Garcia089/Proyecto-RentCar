@@ -3,3 +3,7 @@ asasd,fasdas,23234,dfsdf,1212,das@,CC,343,Arrendatario,fwsfwe
 fsdf,dsfsd,3424,wefsdf,3223,@,CC,3423,Arrendatario,sdfsd
 sdfasd,dasdasd,19,fsdfdsfs,23423423,@@,CC,24234234,Arrendatario,dsfsdf34
 sdsad,dsfdsf,32,fgdfgfgf,5345345,@@@,CE,566456,Arrendatario,fsdf34534
+fsjasfhjdfsj,fdsjdsfjkjkdsf,3534,fdsfs,4534534,@@@@@,CC,534534,Arrendatario,sdhdfshsfhjfs
+dsfjhsdfjhd,dsfhdsjf,4334,dfkjhgdfj,443454,@@@@,CC,53454,Arrendatario,ashsaasjd
+ghhg,hjhjhj,18,ghghjhgj,6756,@@@@@,CC,5678,Arrendatario,hjjg
+Valentina,Garcia,19,calle bla bla,123456,@javeriana,CC,1234,Arrendatario,asdfg

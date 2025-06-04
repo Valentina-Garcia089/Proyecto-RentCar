@@ -12,9 +12,9 @@
                     <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
                 </padding>
                 <Label text="Número de Sillas" />
-                <TextField fx:id="txtNumSillasIngresar" onAction="#onClickRegistrarVehiculo" prefHeight="25.0" prefWidth="26.0" promptText="Pepito" />
+                <TextField fx:id="txtNumSillasIngresar" onAction="#onClickRegistrarVehiculo" prefHeight="25.0" prefWidth="26.0" />
                 <Label text="Número de Puertas" />
-                <TextField fx:id="txtNumPuertasIngresar" onAction="#onClickRegistrarVehiculo" promptText="Perez" />
+                <TextField fx:id="txtNumPuertasIngresar" onAction="#onClickRegistrarVehiculo" />
                 <Label text="Capacidad del Motor" />
             <Slider fx:id="sldCapacidadMotor" majorTickUnit="10.0" showTickLabels="true" showTickMarks="true" />
                 <Label text="Color" />
@@ -29,7 +29,7 @@
                 <Label text="Precio por Día" translateY="-35.0" />
                 <TextField fx:id="txtPrecioIngresar" onAction="#onClickRegistrarVehiculo" translateY="-35.0" />
                 <Label text="Tipo de Vehiculo" translateY="-35.0" />
-            <ChoiceBox fx:id="choiceTipoVehiculo" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceTipoVehiculo" prefWidth="150.0" translateY="-20.0" />
 
                 <Label text="Ciudad" translateY="-10.0" />
             <TextField fx:id="txtCiudadIngresar" maxWidth="-Infinity" minWidth="-Infinity" onAction="#onClickRegistrarVehiculo" prefWidth="99.0" translateY="-10.0" />

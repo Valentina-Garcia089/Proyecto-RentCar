@@ -66,6 +66,7 @@ public class GestorArchivos {
         return false;
     }
 
+
     public ArrayList<Vehiculo> leerVehiculos(String nombreArchivo) {
         ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 

@@ -38,7 +38,6 @@ public class ControladorUsuario implements IControlador{
 
     // Creación de objeto
     GestorVistas vistas = new GestorVistas();
-    Usuario user;
     Contrato contrato;
 
     @FXML

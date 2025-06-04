@@ -171,7 +171,7 @@ public class Vehiculo {
     public void setPaisActual(String paisActual) { this.paisActual = paisActual; }
 
 
-    public boolean isDisponible() {
+    public boolean getDisponible() {
         return disponible;
     }
 
@@ -183,7 +183,7 @@ public class Vehiculo {
     public String toString() {
         return "tipoVehiculo=" + tipoVehiculo + " {" +
                 "marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", placa=" + new String(placa) + ", color='" + color + '\'' + ", precioDia=" + precioDia +
-                 '\'' + ", ciudad='" + ciudad + '\'' + '}';
+                 '\'' + ", ciudad='" + ciudad + '\'' + ", disponible='" + disponible +'}';
     }
 }
 
