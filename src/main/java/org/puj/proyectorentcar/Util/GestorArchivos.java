@@ -24,18 +24,20 @@ public class GestorArchivos {
             return true;
         } catch (IOException e) {
             System.err.println("Error al escribir cliente en el archivo: " + e.getMessage());
-            return false;
         }
+        return false;
     }
 
     // Agregar 1 arrendatario sin borrar el archivo existente
-    public void agregarArrendatario(String nombreArchivo, Arrendatario arrendatario) {
+    public boolean agregarArrendatario(String nombreArchivo, Arrendatario arrendatario) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo, true))) {
             writer.write(arrendatario.exportar());
             writer.newLine();
+            return true;
         } catch (IOException e) {
             System.err.println("Error al escribir arrendatario en el archivo: " + e.getMessage());
         }
+        return false;
     }
 
     // Agregar 1 vehículo sin borrar el archivo existente
@@ -50,7 +52,7 @@ public class GestorArchivos {
         return false;
     }
 
-    public static List<Vehiculo> leerVehiculos(String nombreArchivo) {
+    public List<Vehiculo> leerVehiculos(String nombreArchivo) {
         List<Vehiculo> vehiculos = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
