@@ -17,7 +17,6 @@ import java.time.LocalDate;
 import java.time.DateTimeException;
 
 
-
 public class PagoControlador implements IControlador {
     @javafx.fxml.FXML
     private TextField txtNombreIngresar;
