@@ -108,7 +108,7 @@ public class ControladorUsuario implements IControlador{
             if ("Cliente".equals(tipoUsuario)) {
                 Cliente cliente = new Cliente(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);
                 if(contrato.guardarClienteArchivo("Data/Clientes.txt", cliente))
-                    vistas.abrirVentana("/org/puj/proyectorentcar/alquiler-vehiculo.fxml", "Buscar vehiculo", actual, this.contrato);
+                    vistas.abrirVentana("/org/puj/proyectorentcar/buscar-vehiculo.fxml", "Buscar vehiculo", actual, this.contrato);
             }
             else if ("Arrendatario".equals(tipoUsuario)){
                 Arrendatario arrendatario = new Arrendatario(usr, apellido, edad, direccion, tel, email, tipoID, numId, tipoUsuario, pwd);

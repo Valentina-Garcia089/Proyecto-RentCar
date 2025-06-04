@@ -7,7 +7,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.puj.proyectorentcar.Dominio.Alquiler;
-import org.puj.proyectorentcar.Dominio.Vehiculo;
 import org.puj.proyectorentcar.Negocio.Contrato;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
 
@@ -15,7 +14,7 @@ import java.time.LocalDate;
 import java.time.DateTimeException;
 
 
-public class AlquilerVehiculoControlador implements IControlador{
+public class BuscarVehiculoControlador implements IControlador{
 
     @javafx.fxml.FXML
     private TextField txtPaisActualIngresar;

@@ -6,6 +6,8 @@ import org.puj.proyectorentcar.Dominio.Vehiculo;
 import org.puj.proyectorentcar.Negocio.Contrato;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
 
+import java.util.ArrayList;
+
 public class SeleccionVehiculoControlador implements IControlador{
 
 
@@ -36,6 +38,11 @@ public class SeleccionVehiculoControlador implements IControlador{
     Contrato contrato;
 
     public void initialize(){
+        ArrayList <Vehiculo> traerVehiculos = contrato.leerArchivoVehiculos("Data/Vehiculos.txt");
+        if (traerVehiculos != null) {
+            listViewVehiculosEncontrados.getItems().addAll(traerVehiculos);
+        }
+
         // Desactivar los choiceBox por defecto hasta que este tenga un valor especifico
         choiceSeguro.setDisable(true);
         btnAgregarSeguro.setDisable(true);

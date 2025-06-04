@@ -6,6 +6,8 @@ import org.puj.proyectorentcar.Dominio.Cliente;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
 import org.puj.proyectorentcar.Util.GestorArchivos;
 
+import java.util.ArrayList;
+
 public class Contrato {
     Cliente cliente;
     Arrendatario arrendatario;
@@ -61,9 +63,9 @@ public class Contrato {
         return false;
     }
 
-    /*public boolean leerArchivoVehiculos(String nombreArchivo){
-        if(archivos
-    }*/
+    public ArrayList <Vehiculo> leerArchivoVehiculos(String nombreArchivo){
+        return archivos.leerVehiculos(nombreArchivo);
+    }
 
 
 }

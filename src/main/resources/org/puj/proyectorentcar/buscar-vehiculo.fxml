@@ -5,7 +5,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane alignment="CENTER" minHeight="-Infinity" prefHeight="380.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.AlquilerVehiculoControlador">
+<StackPane alignment="CENTER" minHeight="-Infinity" prefHeight="380.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.BuscarVehiculoControlador">
     <ScrollPane maxHeight="-Infinity" prefHeight="380.0" prefWidth="280.0">
         <content>
             <VBox alignment="TOP_LEFT" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="490.0" prefWidth="253.0" spacing="15.0">

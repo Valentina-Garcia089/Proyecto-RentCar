@@ -52,8 +52,8 @@ public class GestorArchivos {
         return false;
     }
 
-    public List<Vehiculo> leerVehiculos(String nombreArchivo) {
-        List<Vehiculo> vehiculos = new ArrayList<>();
+    public ArrayList<Vehiculo> leerVehiculos(String nombreArchivo) {
+        ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
             String linea;

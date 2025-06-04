@@ -1,1 +1,3 @@
 Carol,Robayo,18,ndejndne,354202030,@javeriana,CC,21165102,Cliente,blabla
+Carol,Robayo,18,asdasd,312321,@gmail,CC,1312,Cliente,123123321gff
+Karen,Martinez,19,dsds,12213,@outlook,CC,13123,Cliente,dsa343
