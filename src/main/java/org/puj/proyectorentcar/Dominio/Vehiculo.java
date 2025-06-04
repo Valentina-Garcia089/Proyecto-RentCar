@@ -159,9 +159,9 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" +
+        return "tipoVehiculo=" + tipoVehiculo + " {" +
                 "marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", placa=" + new String(placa) + ", color='" + color + '\'' + ", precioDia=" + precioDia +
-                ", tipoVehiculo='" + tipoVehiculo + '\'' + ", ciudad='" + ciudad + '\'' + '}';
+                 '\'' + ", ciudad='" + ciudad + '\'' + '}';
     }
 }
 
