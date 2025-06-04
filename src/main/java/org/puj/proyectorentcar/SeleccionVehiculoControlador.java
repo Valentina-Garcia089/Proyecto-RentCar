@@ -1,10 +1,13 @@
 package org.puj.proyectorentcar;
 
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import org.puj.proyectorentcar.Dominio.Vehiculo;
 import org.puj.proyectorentcar.Negocio.Contrato;
 import org.puj.proyectorentcar.Negocio.GestorVistas;
+import org.puj.proyectorentcar.Util.GestorArchivos;
 
 import java.util.ArrayList;
 
@@ -14,12 +17,6 @@ public class SeleccionVehiculoControlador implements IControlador{
     @javafx.fxml.FXML
     private ListView <Vehiculo> listViewVehiculosEncontrados;
     @javafx.fxml.FXML
-    private Button btnAgregarSeguro;
-    @javafx.fxml.FXML
-    private ChoiceBox choiceServiciosAdd;
-    @javafx.fxml.FXML
-    private Button btnAgregarServiciosAdd;
-    @javafx.fxml.FXML
     private ListView <Vehiculo> listViewVehiculoSeleccionado;
     @javafx.fxml.FXML
     private Button btnPagar;
@@ -27,22 +24,12 @@ public class SeleccionVehiculoControlador implements IControlador{
     private Button btnSeleccionarVehiculo;
     @javafx.fxml.FXML
     private Button btnEliminarVehiculo;
-    @javafx.fxml.FXML
-    private ChoiceBox choiceSeguro;
-    @javafx.fxml.FXML
-    private ToggleButton toggleSeleccionSeguro;
-    @javafx.fxml.FXML
-    private ToggleButton toggleSeleccionServiciosAdd;
 
     GestorVistas vistas = new GestorVistas();
     Contrato contrato;
 
-    public void initialize(){
-        ArrayList <Vehiculo> traerVehiculos = contrato.leerArchivoVehiculos("Data/Vehiculos.txt");
-        if (traerVehiculos != null) {
-            listViewVehiculosEncontrados.getItems().addAll(traerVehiculos);
-        }
 
+    /*public void initialize(){
         // Desactivar los choiceBox por defecto hasta que este tenga un valor especifico
         choiceSeguro.setDisable(true);
         btnAgregarSeguro.setDisable(true);
@@ -78,48 +65,59 @@ public class SeleccionVehiculoControlador implements IControlador{
                 choiceServiciosAdd.getSelectionModel().clearSelection();
             }
         });
-    }
+    }*/
 
 
-    @Deprecated
-    public void onClickAgregarServicio(ActionEvent actionEvent) {
-    }
-
-    @javafx.fxml.FXML
-    public void onClickAgregarServiciosAdd(ActionEvent actionEvent) {
-    }
 
     @javafx.fxml.FXML
     public void onClickEliminarVehiculo(ActionEvent actionEvent) {
+        Vehiculo seleccionado = listViewVehiculoSeleccionado.getSelectionModel().getSelectedItem();
+
+        if (seleccionado != null) {
+            listViewVehiculoSeleccionado.getItems().remove(seleccionado);
+        } else {
+            vistas.mostrarError("Sin selección","Selecciona el vehiculo de la derecha para eliminar.");
+        }
+
     }
+
 
     @javafx.fxml.FXML
-    public void onClickSeleccionarServicio(ActionEvent actionEvent) {
-    }
+    public void onClickSeleccionarVehiculo(ActionEvent actionEvent) {
+        Vehiculo seleccionado = listViewVehiculosEncontrados.getSelectionModel().getSelectedItem();
 
-    @Deprecated
-    public void onSeleccionarSeguro(ActionEvent actionEvent) {
+        if (seleccionado != null) {
+            listViewVehiculoSeleccionado.getItems().clear();
+            listViewVehiculoSeleccionado.getItems().add(seleccionado);
+        } else {
+            vistas.mostrarError("Lista vacia","Selecciona un vehículo de la lista de la izquierda.");
+        }
     }
 
     @javafx.fxml.FXML
     public void onClickPagar(ActionEvent actionEvent) {
+        if(!listViewVehiculoSeleccionado.getItems().isEmpty()){
+            Vehiculo vehiculo = listViewVehiculoSeleccionado.getItems().get(0);
+            System.out.println("LOS VALORES A GUARDAR SON: " + vehiculo);
+            contrato.setVehiculo(vehiculo);
+            Stage actual = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            vistas.abrirVentana("/org/puj/proyectorentcar/seleccion-adicional.fxml", "Selección de servicios adicionales", actual, this.contrato);
+        }
+        else {
+            vistas.mostrarError("Vehiculo no seleccionado", "Debe seleccionar un vehiculo para continuar");
+        }
     }
 
-    @javafx.fxml.FXML
-    public void onClickSeleccionarVehiculo(ActionEvent actionEvent) {
-    }
-
-    @javafx.fxml.FXML
-    public void onClickAgregarSeguro(ActionEvent actionEvent) {
-    }
 
 
     @Override
     public void setContrato(Contrato contrato) {
         this.contrato = contrato;
+        ArrayList <Vehiculo> traerVehiculos = contrato.leerArchivoVehiculos("Data/Vehiculos.txt");
+        if (traerVehiculos != null) {
+            listViewVehiculosEncontrados.getItems().addAll(traerVehiculos);
+        }
     }
 
-    @javafx.fxml.FXML
-    public void onClickSeleccionarSeguro(ActionEvent actionEvent) {
-    }
+
 }

@@ -13,8 +13,25 @@ public class Contrato {
     Arrendatario arrendatario;
     Vehiculo vehiculo;
     Alquiler alquiler;
-
+    ArrayList <Vehiculo> listaVehiculos = new ArrayList<>();
     GestorArchivos archivos = new GestorArchivos();
+
+
+    public void setAlquiler(Alquiler alquiler) {
+        this.alquiler = alquiler;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setArrendatario(Arrendatario arrendatario) {
+        this.arrendatario = arrendatario;
+    }
 
     public Cliente getCliente(){
         return cliente;
@@ -58,13 +75,15 @@ public class Contrato {
     public boolean guardarVehiculoArchivo(String nombreArchivo, Vehiculo vehiculo){
         if(archivos.agregarVehiculo(nombreArchivo, vehiculo)){
             this.vehiculo = vehiculo;
+            System.out.println("El valor de vehiculo es: " + getVehiculo());
             return true;
         }
         return false;
     }
 
     public ArrayList <Vehiculo> leerArchivoVehiculos(String nombreArchivo){
-        return archivos.leerVehiculos(nombreArchivo);
+        listaVehiculos = archivos.leerVehiculos(nombreArchivo);
+        return listaVehiculos;
     }
 
 

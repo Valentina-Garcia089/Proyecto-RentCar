@@ -39,7 +39,14 @@ public class Vehiculo {
         this.marca = marca;
         this.modelo = modelo;
         this.precioDia = precioDia;
-        this.tipoVehiculo = tipoVehiculo;
+        if(tipoVehiculo.equalsIgnoreCase("Automovil")){
+            this.tipoVehiculo = "Automovil";
+        }else if (tipoVehiculo.equalsIgnoreCase("Van")){
+            this.tipoVehiculo = "Van";
+        }else if (tipoVehiculo.equalsIgnoreCase("Camioneta")){
+            this.tipoVehiculo = "Camioneta";
+        }
+
         this.ciudad = ciudad;
         this.paisActual = paisActual;
 
@@ -159,9 +166,9 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" +
+        return "tipoVehiculo=" + tipoVehiculo + " {" +
                 "marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", placa=" + new String(placa) + ", color='" + color + '\'' + ", precioDia=" + precioDia +
-                ", tipoVehiculo='" + tipoVehiculo + '\'' + ", ciudad='" + ciudad + '\'' + '}';
+                 '\'' + ", ciudad='" + ciudad + '\'' + '}';
     }
 }
 

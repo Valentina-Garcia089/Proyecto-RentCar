@@ -25,7 +25,8 @@ public class GestorVistas{
                 pasada.close();
         }
         catch(IOException e){
-            System.err.println("Ocurrió un error: " + e.getMessage());
+            System.err.println("Ocurrió un error: " + rutaFXML);
+            e.printStackTrace();
         }
     }
 

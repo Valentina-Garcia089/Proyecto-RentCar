@@ -140,8 +140,14 @@ public class Alquiler {
     }
     public void AgregarSeguro(String tipo,float costo,float porcentageRetencion){
         if(seguro.size()<4){
-            Seguro e=new Seguro(tipo,costo,porcentageRetencion);
+            Seguro e=new Seguro(tipo);
             this.seguro.add(e);
+        }
+    }
+    public void AgregarServicio(String tipo){
+        if(serviciosAdds.size()<4){
+            ServiciosAdd e=new ServiciosAdd(tipo);
+            this.serviciosAdds.add(e);
         }
     }
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.SeleccionAdicionalControlador">
+
+    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="380.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="514.0" spacing="15.0" translateY="170.0">
+        <children>
+            <Label text="Seguros Seleccionados" translateX="-215.0" translateY="80.0" />
+            <Label text="Servicios Seleccionados" translateX="-18.0" translateY="47.0" />
+            <ListView fx:id="listViewSeguros" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="240.0" scaleX="0.75" scaleY="1.25" translateX="-210.0" translateY="72.0" />
+            <Button fx:id="btnEliminarSeguro" mnemonicParsing="false" onAction="#onClickEliminarSeguro" text="Eliminar Seguro" translateX="-210.0" translateY="102.0" />
+            <ListView fx:id="listViewServicios" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="180.0" translateX="-15.0" translateY="-200.0" />
+            <Button fx:id="btnEliminarServicio" mnemonicParsing="false" onAction="#onClickEliminarSericio" text="Eliminar Servicio" translateX="-15.0" translateY="-194.0" />
+            <Label text="Seguro" translateX="205.0" translateY="-520.0">
+                <graphic>
+                    <ToggleButton fx:id="toggleSeleccionSeguro" mnemonicParsing="false" onAction="#onClickSeleccionarSeguro" text="SI/NO" />
+                </graphic></Label>
+            <ChoiceBox fx:id="choiceSeguro" prefWidth="150.0" translateX="205.0" translateY="-520.0" />
+            <Button fx:id="btnAgregarSeguro" mnemonicParsing="false" onAction="#onClickAgregarSeguro" text="Agregar Seguro" translateX="205.0" translateY="-520.0" />
+            <Label text="Servicios Adicionales" translateX="205.0" translateY="-481.0">
+                <graphic>
+                    <ToggleButton fx:id="toggleSeleccionServiciosAdd" mnemonicParsing="false" onAction="#onClickSeleccionarServicio" text="SI/NO" />
+                </graphic>
+            </Label>
+            <ChoiceBox fx:id="choiceServiciosAdd" prefWidth="150.0" translateX="205.0" translateY="-481.0" />
+            <Button fx:id="btnAgregarServiciosAdd" mnemonicParsing="false" onAction="#onClickAgregarServiciosAdd" text="Agregar Servicio" translateX="205.0" translateY="-481.0" />
+            <Button fx:id="btnPagar" mnemonicParsing="false" onAction="#onClickPagar" text="Pagar" translateX="210.0" translateY="-390.0" />
+        </children>
+    </VBox>
+
+</StackPane>

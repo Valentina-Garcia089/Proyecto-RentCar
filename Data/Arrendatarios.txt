@@ -1,1 +1,3 @@
 Valentina,Garcia,19,sadasdas,12323123,@javeriana,CC,123124,Arrendatario,123123sfdfsd
+asasd,fasdas,23234,dfsdf,1212,das@,CC,343,Arrendatario,fwsfwe
+fsdf,dsfsd,3424,wefsdf,3223,@,CC,3423,Arrendatario,sdfsd

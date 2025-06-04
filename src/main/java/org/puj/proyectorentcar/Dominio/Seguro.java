@@ -5,10 +5,24 @@ public class Seguro {
     private float costo;
     private float porcentajeRetencion;
 
-    public Seguro(String tipo, float costo, float porcentajeRetencion) {
-        this.tipo = tipo;
-        this.costo = costo;
-        this.porcentajeRetencion = porcentajeRetencion;
+    public Seguro(String tipo) {
+        if(tipo.equalsIgnoreCase("Sin seguro")){
+            this.tipo = "Sin seguro";
+            this.costo = 0;
+            this.porcentajeRetencion = 70;
+        }else if (tipo.equalsIgnoreCase("Seguro llantas")){
+            this.tipo = "Seguro llantas";
+            this.costo = 300000;
+            this.porcentajeRetencion = 40;
+        }else if (tipo.equalsIgnoreCase("Seguro vidiros")){
+            this.tipo = "Seguro vidiros";
+            this.costo = 100000;
+            this.porcentajeRetencion = 20;
+        }else if(tipo.equalsIgnoreCase("Todo riesgo")) {
+            this.tipo = "Todo riesgo";
+            this.costo = 500000;
+            this.porcentajeRetencion = 0;
+        }
     }
 
     public String getTipo() {

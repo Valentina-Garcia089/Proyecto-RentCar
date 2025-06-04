@@ -5,28 +5,15 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.puj.proyectorentcar.SeleccionVehiculoControlador">
 
-    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="380.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="514.0" spacing="15.0" translateY="170.0">
+    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="380.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="514.0" spacing="15.0" translateY="50.0">
         <children>
-         <Label text="Lista de Vehiculos" translateX="-215.0" translateY="80.0" />
-         <Label text="Vehiculo seleccionado" translateX="-18.0" translateY="47.0" />
-            <ListView fx:id="listViewVehiculosEncontrados" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="240.0" scaleX="0.75" scaleY="1.25" translateX="-210.0" translateY="72.0" />
-         <Button fx:id="btnSeleccionarVehiculo" mnemonicParsing="false" onAction="#onClickSeleccionarVehiculo" text="Seleccionar Vehiculo" translateX="-210.0" translateY="100.0" />
-         <ListView fx:id="listViewVehiculoSeleccionado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="180.0" translateX="-15.0" translateY="-200.0" />
-         <Button fx:id="btnEliminarVehiculo" mnemonicParsing="false" onAction="#onClickEliminarVehiculo" text="Eliminar Vehiculo" translateX="-15.0" translateY="-194.0" />
-         <Label text="Seguro" translateX="205.0" translateY="-495.0">
-            <graphic>
-               <ToggleButton fx:id="toggleSeleccionSeguro" mnemonicParsing="false" onAction="#onClickSeleccionarSeguro" text="SI/NO" />
-            </graphic></Label>
-         <ChoiceBox fx:id="choiceSeguro" prefWidth="150.0" translateX="205.0" translateY="-495.0" />
-         <Button fx:id="btnAgregarSeguro" mnemonicParsing="false" onAction="#onClickAgregarSeguro" text="Agregar Seguro" translateX="205.0" translateY="-495.0" />
-         <Label text="Servicios Adicionales" translateX="205.0" translateY="-470.0">
-            <graphic>
-               <ToggleButton fx:id="toggleSeleccionServiciosAdd" mnemonicParsing="false" onAction="#onClickSeleccionarServicio" text="SI/NO" />
-            </graphic>
-         </Label>
-         <ChoiceBox fx:id="choiceServiciosAdd" prefWidth="150.0" translateX="205.0" translateY="-470.0" />
-         <Button fx:id="btnAgregarServiciosAdd" mnemonicParsing="false" onAction="#onClickAgregarServiciosAdd" text="Agregar Servicio" translateX="205.0" translateY="-470.0" />
-            <Button fx:id="btnPagar" mnemonicParsing="false" onAction="#onClickPagar" text="Pagar" translateX="210.0" translateY="-390.0" />
+         <Label text="Lista de Vehiculos" translateX="-150.0" translateY="80.0" />
+         <Label text="Vehiculo seleccionado" translateX="145.0" translateY="47.0" />
+            <ListView fx:id="listViewVehiculosEncontrados" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="380.0" scaleX="0.75" scaleY="1.25" translateX="-150.0" translateY="72.0" />
+         <Button fx:id="btnSeleccionarVehiculo" mnemonicParsing="false" onAction="#onClickSeleccionarVehiculo" text="Seleccionar Vehiculo" translateX="-150.0" translateY="102.0" />
+         <ListView fx:id="listViewVehiculoSeleccionado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="280.0" translateX="150.0" translateY="-200.0" />
+         <Button fx:id="btnEliminarVehiculo" mnemonicParsing="false" onAction="#onClickEliminarVehiculo" text="Eliminar Vehiculo" translateX="150.0" translateY="-194.0" />
+            <Button fx:id="btnPagar" mnemonicParsing="false" onAction="#onClickPagar" text="Siguiente" translateX="258.0" translateY="-170.0" />
         </children>
     </VBox>
 
